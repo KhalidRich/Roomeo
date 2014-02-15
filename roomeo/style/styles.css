@@ -6,8 +6,8 @@ body {
 	
 	width: 100%;
 	padding-top: 25px;
-	position: fixed;
 	float: center;
+	margin-bottom: 30px;
 }
 
 #empty {
@@ -21,6 +21,7 @@ body {
 	background-color: #F7F7F7;
 	float: center;
 	margin-top: 35px;
+	padding-bottom: 35px;
 
 }
 
@@ -28,3 +29,19 @@ label {
 	float: left;
 }
 
+#cta_btn {
+	margin-top: 25px;
+	text-align: center;
+}
+
+#cta-submit-btn {
+	text-align: center;
+}
+
+.text-centered {
+	text-align: center;
+}
+
+#other_img {
+	float: right;
+}
