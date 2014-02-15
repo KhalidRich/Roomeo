@@ -1,10 +1,10 @@
 .carousel-inner{
-  max-height: 40%;
+  max-height: 70%;
   width:100%;
 }
 
 .carousel-inner > .item > img{
-  max-height: 40%;
+  max-height: 70%;
   width:100%;
 }
 
