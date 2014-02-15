@@ -1,11 +1,11 @@
 .carousel-inner{
-  max-height: 400px;
-  width:640px;
+  max-height: 40%;
+  width:100%;
 }
 
 .carousel-inner > .item > img{
-  max-height: 400px;
-  width:640px;
+  max-height: 40%;
+  width:100%;
 }
 
 .form-control {
