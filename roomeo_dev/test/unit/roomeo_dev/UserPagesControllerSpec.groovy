@@ -21,6 +21,6 @@ class UserPagesControllerSpec extends Specification {
 	def index = {
 		def Name = "Sally"
 		def Matches = 6
-		[]
+		[name: Name, matches: Matches]
 	}
 }
