@@ -1,15 +1,18 @@
 package roomeo_dev
 
-class AboutController {
+class SignupController {
 
     def index() { }
-	def home() {
+	def home(){
 		redirect(controller:"HomeController",action:"index")
 	}
-	def signin(){
+	def about() {
+		redirect(controller:"AboutController",action:"index")
+	}
+	def signin() {
 		redirect(controller:"SigninController",action:"index")
 	}
-	def signup() {
-		redirect(controller:"SignupController",action:"index")
+	def signup(){
+		
 	}
 }
