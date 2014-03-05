@@ -13,7 +13,7 @@ target
 tmp
 test-result
 server.pid
-.DS_Store
+*.DS_Store
 *.iml
 *.eml
 dist
