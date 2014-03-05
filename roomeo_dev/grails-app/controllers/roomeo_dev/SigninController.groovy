@@ -2,7 +2,12 @@ package roomeo_dev
 
 class SigninController {
 
-    def index() { }
+    def index() { 
+		
+		/*DATA
+		 * log-in info: email and password
+		 */
+	}
 	def home() {
 		redirect(controller:"HomeController",action:"index")
 	}
