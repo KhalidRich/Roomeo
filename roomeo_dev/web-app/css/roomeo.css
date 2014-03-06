@@ -28,5 +28,13 @@
 
 .navbar-default {
   background-color: black;
-  border-color: #e7e7e7;
+  border-color: black;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #E0E0E0;
+}
+
+.navbar-default .navbar-brand {
+  color: #E0E0E0;
 }
