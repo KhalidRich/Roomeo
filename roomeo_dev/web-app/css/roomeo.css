@@ -43,3 +43,9 @@
 .home {
   opacity: 1.0;
 }
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: white;
+  background-color: rgb(128,203,242);
+}
