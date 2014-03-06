@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="application"/>
-		
-	</head>
-
-	<body>hi</body>
+	<body background="img/bw.jpg">hi </body>
 
 </html>
