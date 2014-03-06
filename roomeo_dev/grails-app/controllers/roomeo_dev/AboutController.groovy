@@ -2,7 +2,9 @@ package roomeo_dev
 
 class AboutController {
 
-    def index() { }
+    def index() { 
+		
+	}
 	def home() {
 		redirect(controller:"HomeController",action:"index")
 	}
