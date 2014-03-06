@@ -10,6 +10,9 @@
 // if (System.properties["${appName}.config.location"]) {
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
+grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']   /*no changes here*/
+grails.resources.adhoc.excludes = ['/**/langs/**/*.*', '/**/themes/**/*.*']  /*to permit some Ajax calls from tiny_mce.js to relevant resources*/
+grails.resources.debug=true 
 
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 

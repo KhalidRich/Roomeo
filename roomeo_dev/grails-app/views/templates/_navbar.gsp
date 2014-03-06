@@ -1,9 +1,9 @@
-<html>
- <link href="/css/bootstrap.min.css" rel="stylesheet"><%--
- <link rel="stylesheet" href="style/styles.css">
- --%><link rel="stylesheet" href="../../css/roomeo.css">
-
-<!-- Latest compiled and minified JavaScript -->
+<html>		
+ <link href="${resource(dir: 'css', file: 'bootstrap.min.css')}" rel="stylesheet">
+ <link rel="stylesheet" href="${resource(dir: 'style', file: 'styles.css')}">
+ <link rel="stylesheet" href="${resource(dir: 'css', file: 'roomeo.css')}">
+ <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">
+<!-- Latest compiled and minified JavaScript--%>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 <nav class="navbar navbar-default" role="navigation">

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<g:render template="/templates/navbar" />
 <html>
 	<head>
 		<meta name="layout" content="application"/>
-		
+		<g:render template="/templates/navbar" />
 	</head>
 
 	<body>hi</body>
