@@ -14,16 +14,17 @@
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>"grails-app/views/home/index.gsp"
       </button>
-      <a class="navbar-brand" href="#">Roomeo</a>
-    </div>
+      <a class="navbar-brand" href="${createLink(controller: 'home', action: 'index')}">Roomeo</a><%--
+      <a  href="#">Roomeo</a>
+    --%></div>
 
 	<ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Search</a></li>
-        <li><a href="#">Sign In</a></li>
-        <li><a href="#">Sign Up</a></li>
+        <li><a href="${createLink(controller: 'profile', action: 'index')}">Profile</a></li>
+        <li><a href="${createLink(controller: 'search', action: 'index')}">Search</a></li>
+        <li><a href="${createLink(controller: 'signin', action: 'index')}">Sign In</a></li>
+        <li><a href="${createLink(controller: 'signup', action: 'index')}">Sign Up</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
