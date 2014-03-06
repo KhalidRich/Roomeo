@@ -1,7 +1,7 @@
 <html>
  <link href="/css/bootstrap.min.css" rel="stylesheet"><%--
  <link rel="stylesheet" href="style/styles.css">
- --%><link rel="stylesheet" href="/css/roomeo.css">
+ --%><link rel="stylesheet" href="../../css/roomeo.css">
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>

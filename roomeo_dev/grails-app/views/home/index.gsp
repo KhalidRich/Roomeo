@@ -1,4 +1,5 @@
-<g:render template="/templates/navbar" /><!DOCTYPE html>
+<!DOCTYPE html>
+<g:render template="/templates/navbar" />
 <html>
 	<head>
 		<meta name="layout" content="application"/>
