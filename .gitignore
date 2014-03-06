@@ -16,5 +16,7 @@ server.pid
 *.DS_Store
 *.iml
 *.eml
+# Ignore all hidden files
+*.*
 dist
 .cache
