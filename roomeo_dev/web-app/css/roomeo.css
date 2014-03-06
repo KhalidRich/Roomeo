@@ -51,5 +51,72 @@
 }
 
 #homeh1 {
+  font-size:170%;
+  width: 300px; 
+  position:relative;
+  left:250px;
+  top:160px;
+}
+
+#searchbox {
+  width: 400px; 
+  position:relative;
+  left:550px;
+  top:100px;
+}
+
+#searchbutton {
+  position:relative;
+  left:330px;
+  top:100px;
+  color: #FFFFFF; 
+  background-color: #000000; 
+}
+
+
+.about {
+  background-color: #88CEF2; 
+  
 
 }
+
+#abouth1 {
+  font-size: 250%; 
+  position: relative;
+  left: 100px;
+  top: 100px; 
+}
+
+
+#abouth2 {
+  font-size: 200%;
+  position: relative;
+  left: 100px;
+  top: 110px; 
+  width: 800px; 
+  color: #585858; 
+
+}
+
+#abouth3 {
+  font-size: 150%;
+  position: relative;
+  left: 100px;
+  top: 120px; 
+  width: 800px; 
+  color: #808080; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
