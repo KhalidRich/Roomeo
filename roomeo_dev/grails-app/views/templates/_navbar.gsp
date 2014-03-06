@@ -1,9 +1,9 @@
 <html>		
  <link href="${resource(dir: 'css', file: 'bootstrap.min.css')}" rel="stylesheet">
  <link rel="stylesheet" href="${resource(dir: 'style', file: 'styles.css')}">
- <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'roomeo.css')}">
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="${resource(dir: 'js', file: 'bootstrap.min.js')}"></script>
 
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
@@ -19,14 +19,32 @@
 	</div>
 
 	<ul class="nav navbar-nav navbar-right">
-        <li><a href="${createLink(controller: 'profile', action: 'index')}">Profile</a></li>
-        <li><a href="${createLink(controller: 'search', action: 'index')}">Search</a></li>
-        <li><a href="${createLink(controller: 'signin', action: 'index')}">Sign In</a></li>
-        <li><a href="${createLink(controller: 'signup', action: 'index')}">Sign Up</a></li>
+		<li><a href="${createLink(controller: 'search', action: 'index')}">Search</a></li>
+		<g:if test="${session.user}">
+			<li><a href="${createLink(controller: 'profile', action: 'index')}">Profile</a></li>
+			<li><a href="${createLink(controller: 'user', action: 'logout')}">Log Out</a></li>
+		</g:if>
+		<g:else>
+			<li><a href="${createLink(controller: 'user', action: 'register')}">Sign Up</a></li>
+			<li class="dropdown">
+			<div class="btn-group">
+			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			    Log In <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu">
+			<g:form controller="user" action="login">
+		          <div class="form-group">
+		            <input type="text" class="input-medium" name="username" placeholder="username" size="20px">
+		          </div>
+		          <div class="form-group">
+		            <input type="password" class="input-medium" name="password" placeholder="password">
+		          </div>
+		          <div id="cta-submit-btn"><button type="submit" class="btn btn-default">Submit</button></div>
+			</g:form>
+			  </ul>
+        </li>
+		</g:else>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
+    </div>
 </html>
 
