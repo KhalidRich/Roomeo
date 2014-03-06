@@ -2,7 +2,16 @@ package roomeo_dev
 
 class MatchesController {
 
-    def index() { }
+    def index() { 
+		
+		/*DATA
+		 * names
+		 * pictures
+		 * need/have apt
+		 * age
+		 * price range
+		 */
+	}
 	def profile() {
 		redirect(controller:"ProfileController",action:"index")
 	}
