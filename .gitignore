@@ -23,8 +23,6 @@ dist
 # Eclipse stuff
 *.metadata
 *.settings
-*.classpath
-*.project
 
 # Grails stuff
 *target-eclipse

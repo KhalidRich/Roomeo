@@ -5,7 +5,8 @@ class User {
 	UserMatch matches
 	Address address
 	UserPersonality personality
-
+	
+	static embedded = ['address', 'personality', 'attributes']
     static constraints = {
     }
 }
