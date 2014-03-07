@@ -16,7 +16,17 @@ server.pid
 *.DS_Store
 *.iml
 *.eml
-# Ignore all hidden files
-*.*
+# Ignoring all hidden files doesn't work the way I thought it worked
 dist
 .cache
+
+# Eclipse stuff
+*.metadata
+*.settings
+*.classpath
+*.project
+
+# Grails stuff
+*target-eclipse
+*c.tld
+*fmt.tld
