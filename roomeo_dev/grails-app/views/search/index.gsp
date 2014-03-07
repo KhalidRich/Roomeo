@@ -28,7 +28,7 @@
 	<g:render template="/templates/navbar" />
 		<div class="panel panel-default" id="searchpanel">
 			 <div class="panel-body" id="panelbody">
-				<form role="form" class="searchform" id="searchform1">
+				<g:form role="form" class="searchform" id="searchform1">
 				
 				  <div class="checkbox" id="haveroom">
 				    <label>
@@ -70,9 +70,9 @@
 				    </label>
 				  </div>
 				  
-				  <button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
+				  <g:actionSubmit value="index" />
 				
-				</form>
+				</g:form>
 			</div>
 			</div>
 		</div>
