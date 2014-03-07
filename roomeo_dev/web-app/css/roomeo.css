@@ -122,11 +122,55 @@
   z-index: 100;
   position: relative;
 }
+#searchpanel {
+  position: relative;
+  top: 50%;
+  left: 2%; 
+  width: 220px; 
+  length: 600px; 
+  background: #F0F0F0; 
 
+}
 
+#minrent {
+  width: 50px; 
+  position: relative;
+  left: -18%; 
+}
 
+#maxrent {
+  width: 50px; 
+  position: relative;
 
+}
 
+#to {
+  position: relative; 
+  left: -10%; 
+  display:inline
+}
+
+#rooms {
+  position: relative:
+  left: -200px; ;
+  top: 10%; 
+ 
+}
+
+#stay {
+  position: relative;
+  left: -52%;
+  top: 10%; 
+}
+
+#submitbutton {
+  background: #88CEF2;
+}
+
+.form-control {
+    white-space: nowrap;
+    display:inline
+}
 
 
 
