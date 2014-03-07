@@ -28,7 +28,7 @@
 	<g:render template="/templates/navbar" />
 		<div class="panel panel-default" id="searchpanel">
 			 <div class="panel-body" id="panelbody">
-				<g:form role="form" class="searchform" id="searchform1">
+				<g:form role="form" class="searchform">
 				
 				  <div class="checkbox" id="haveroom">
 				    <label>
