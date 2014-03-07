@@ -11,7 +11,7 @@
 		</div>
 		<div id="homesearch" role="search" class="navbar-form navbar-left">
        		 <div id="searchbox" class="form-group">
-        		  <input type="text" class="form-control" placeholder="Search for your city!">
+        		  <input type="text" class="form-control" name="cityname" placeholder="Search for your city!">
        		 </div>
         	<button id="searchbutton" type="submit" class="btn btn-default">Search Now!</button>
         </div>
