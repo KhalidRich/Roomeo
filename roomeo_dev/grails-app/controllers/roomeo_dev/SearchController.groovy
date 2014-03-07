@@ -16,7 +16,7 @@ class SearchController {
 	}
 	
 	def getsearchmatches(){
-		render('../test/index')
+		render('index')
 		return
 //		render(view:"home")
 //		redirect(view:"index")
