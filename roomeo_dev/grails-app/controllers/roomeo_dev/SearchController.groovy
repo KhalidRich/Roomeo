@@ -14,4 +14,12 @@ class SearchController {
 	def test(){
 		
 	}
+	
+	def getsearchmatches(){
+		render('../test/index')
+		return
+//		render(view:"home")
+//		redirect(view:"index")
+//		redirect(template: "book", collection: [b1, b2, b3])
+	}
 }
