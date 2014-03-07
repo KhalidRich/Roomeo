@@ -30,6 +30,12 @@
 			 <div class="panel-body" id="panelbody">
 				<g:form role="form" class="searchform">
 				
+				  <div><label> Location </label></div>
+				  <br>
+				  <div class="form-group" id="location">
+				    <input type="text" class="input-large form-control" id="loc" name="location" placeholder="Eg. NYC">
+				  </div>
+				  
 				  <div class="checkbox" id="haveroom">
 				    <label>
 				      <input type="checkbox" name="haveroom"> Have Room 
