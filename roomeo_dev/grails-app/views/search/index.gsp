@@ -30,6 +30,12 @@
 			 <div class="panel-body" id="panelbody">
 				<form role="form" class="searchform" id="searchform1">
 				
+				  <div><label> Location </label></div>
+				  <br>
+				  <div class="form-group" id="location">
+				    <input type="text" class="form-control" id="loc" name="location" placeholder="Eg. NYC">
+				  </div>
+				  
 				  <div class="checkbox" id="haveroom">
 				    <label>
 				      <input type="checkbox" name="haveroom"> Have Room 
