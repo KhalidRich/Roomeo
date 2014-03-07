@@ -7,21 +7,25 @@
     </script>
     <script>
     function initialize() {
-		  var mapOptions = {
-				    zoom: 13,
-				    center: new google.maps.LatLng(-33.9, 151.2)
-				  }
-				  var map = new google.maps.Map(document.getElementById('map-canvas'),
-				                                mapOptions);
- 		}
-		google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+    	  var myLatlng = new google.maps.LatLng(40.67,-73.94);
+    	  var mapOptions = {
+    	    zoom: 10,
+    	    center: myLatlng
+    	  };
+
+    	  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    	  if(test="${users}"){
+        	  setMarkers(${users})
+    	  }
+    	}
+    	google.maps.event.addDomListener(window, 'load', initialize);
+     </script>
   </head>
   <body>
     <div id='container'>
       <g:render template="/templates/navbar" />
-      <form role="form" class="searchform" id="searchform1">
-		
+      <g:form controller="search" action="getsearchmatches">	
 		  <div class="checkbox" id="haveroom">
 		    <label>
 		      <input type="checkbox" name="haveroom"> Have Room
@@ -59,9 +63,9 @@
 		    </label>
 		  </div>
 		  
-		  <button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
+		  <div id="cta-submit-btn"><button type="submit" class="btn btn-default">Submit</button></div>
 		
-		</form>
+		</g:form>
     </div>
  
     <div id='map-canvas'></div>

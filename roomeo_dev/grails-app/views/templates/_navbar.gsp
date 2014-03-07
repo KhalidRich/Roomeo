@@ -39,7 +39,7 @@
 		          <div class="form-group">
 		            <input type="password" class="input-medium" name="password" placeholder="password">
 		          </div>
-		          <div id="cta-submit-btn"><button type="submit" class="btn btn-default">Submit</button></div>
+		          <button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
 			</g:form>
 			  </ul>
         </li>
