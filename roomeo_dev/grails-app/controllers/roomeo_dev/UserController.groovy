@@ -16,12 +16,13 @@ class UserController {
 		// all parameters sent from client is stored in variable named params
 		if(params.username == "admin" && params.password=="pass"){
 			flash.message = "login succeed"
-			session.user = username
+			session.user = params.username
+			redirect(controller: 'profile', action: 'index')
 			}
 		else{
 			flash.message = "login failed"
+			redirect(controller: 'home', action: 'index')
 		}
-		redirect(controller: 'profile', action: 'index')
 	}
 	def logout() {
 		session.user = null
