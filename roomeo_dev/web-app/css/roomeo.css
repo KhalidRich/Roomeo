@@ -51,6 +51,21 @@
   background-color: rgb(128,203,242);
 }
 
+#map-canvas {
+  height: 100%;
+  position: absolute; 
+  top: 0; 
+  bottom: -200px; 
+  left: 0; 
+  right: 0; 
+  z-index: 0;
+}
+ 
+#container {
+  z-index: 100;
+  position: relative;
+}
+
 #homeh1 {
   font-size:170%;
   width: 300px; 
@@ -78,7 +93,6 @@
 .about {
   background-color: #88CEF2; 
   
-
 }
 
 #abouth1 {

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	     <link rel="icon" 
+      type="image/icon" 
+      href="http://images2.similargroup.com/image?url=ramos-4.bloger.hr&t=2&s=10&h=12258656341838259611">
 		<meta name="layout" content="application"/>
 		<g:render template="/templates/navbar" />
 		<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'roomeo.css')}">

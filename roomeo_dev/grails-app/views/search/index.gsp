@@ -21,6 +21,9 @@
     	}
     	google.maps.event.addDomListener(window, 'load', initialize);
      </script>
+     <link rel="icon" 
+      type="image/icon" 
+      href="http://images2.similargroup.com/image?url=ramos-4.bloger.hr&t=2&s=10&h=12258656341838259611">
   </head>
 	
 	<body class="search"> 
@@ -28,7 +31,7 @@
 	<g:render template="/templates/navbar" />
 		<div class="panel panel-default" id="searchpanel">
 			 <div class="panel-body" id="panelbody">
-				<form role="form" class="searchform" id="searchform1">
+				<form role="form" class="searchform">
 				
 				  <div><label> Location </label></div>
 				  <br>
