@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'roomeo.css')}">
+    <g:render template="/templates/navbar" />
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?sensor=false">
     </script>
@@ -24,7 +25,6 @@
   </head>
   <body>
     <div id='container'>
-      <g:render template="/templates/navbar" />
       <g:form controller="search" action="getsearchmatches">	
 		  <div class="checkbox" id="haveroom">
 		    <label>
