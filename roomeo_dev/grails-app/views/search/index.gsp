@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="application"/>
-		<g:render template="/templates/navbar" />
-		<link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'roomeo.css')}">
-	</head>
+<head>
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'roomeo.css')}">
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=false">
+    </script>
+    <script>
+    function initialize() {
+    	  var myLatlng = new google.maps.LatLng(40.67,-73.94);
+    	  var mapOptions = {
+    	    zoom: 10,
+    	    center: myLatlng
+    	  };
+
+    	  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    	  if(test="${users}"){
+        	  setMarkers(${users})
+    	  }
+    	}
+    	google.maps.event.addDomListener(window, 'load', initialize);
+     </script>
+  </head>
 	
 	<body class="search"> 
+	<div id='container'>
+	<g:render template="/templates/navbar" />
 		<div class="panel panel-default" id="searchpanel">
 			 <div class="panel-body" id="panelbody">
 				<form role="form" class="searchform" id="searchform1">
@@ -55,7 +74,9 @@
 				
 				</form>
 			</div>
+			</div>
 		</div>
+		 <div id='map-canvas'></div>
 	</body>
 
 </html>
