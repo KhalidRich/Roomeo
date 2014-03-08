@@ -5,19 +5,20 @@
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?sensor=false">
     </script>
+    <script src="${resource(dir: 'js', file: 'maps.js')}"></script>
     <script>
     function initialize() {
+    	var map;
     	  var myLatlng = new google.maps.LatLng(40.67,-73.94);
     	  var mapOptions = {
     	    zoom: 10,
     	    center: myLatlng
     	  };
-
-    	  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-    	  if(test="${users}"){
-        	  setMarkers(${users})
-    	  }
+		
+    	  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			if("${users}"){
+				setMarkers(map, $.parseJSON("${users}".replace(/&quot;/g,'"')));
+			}
     	}
     	google.maps.event.addDomListener(window, 'load', initialize);
      </script>
