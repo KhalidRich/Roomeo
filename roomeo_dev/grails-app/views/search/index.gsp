@@ -22,6 +22,9 @@
     	}
     	google.maps.event.addDomListener(window, 'load', initialize);
      </script>
+     <link rel="icon" 
+      type="image/icon" 
+      href="http://images2.similargroup.com/image?url=ramos-4.bloger.hr&t=2&s=10&h=12258656341838259611">
   </head>
 	
 	<body class="search"> 
