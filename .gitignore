@@ -13,8 +13,18 @@ target
 tmp
 test-result
 server.pid
-.DS_Store
+*.DS_Store
 *.iml
 *.eml
+# Ignoring all hidden files doesn't work the way I thought it worked
 dist
 .cache
+
+# Eclipse stuff
+*.metadata
+*.settings
+
+# Grails stuff
+*target-eclipse
+*c.tld
+*fmt.tld
