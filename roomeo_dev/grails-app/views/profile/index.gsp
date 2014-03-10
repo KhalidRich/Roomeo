@@ -51,27 +51,6 @@
 						    </div>
 						</div>
 						
-						<div id="locationfield">
-				    		<label id="location"> Desired Location: </label>
-					    	<div class="form-group" id="input">
-								    <input type="text" class="form-control" id="locationfill" name="location" placeholder="Eg. NYC">
-						    </div>
-						</div>
-						
-						<div id="stayfield">
-				    		<label id="stay"> Length of Stay: </label>
-					    	<div class="form-group" id="input">
-								    <input type="text" class="form-control" id="stayfill" name="stay" placeholder="Summer/Fulltime">
-						    </div>
-						</div>
-						
-						<div id="roomfield">
-				    		<label id="room"> Have or Need Room: </label>
-					    	<div class="form-group" id="input">
-								    <input type="text" class="form-control" id="roomfill" name="gender" placeholder="Have/Need">
-						    </div>
-						</div>
-						
 						<div id="collegefield">
 				    		<label id="college"> College: </label>
 					    	<div class="form-group" id="input">
@@ -129,6 +108,24 @@
 					<input type="radio" name="social" value="1/weekly">1/weekly<br>
 					<input type="radio" name="social" value="1/biweekly">1/biweekly<br>
 					<input type="radio" name="social" value="1/monthly">1/monthly
+				</form>
+				<form action="">
+            		<label>Where is your desired location:</label><br><br>
+					<input type="radio" name="social" value="brooklyn">Brooklyn [hispter!]<br>
+					<input type="radio" name="social" value="bronx">Bronx<br>
+					<input type="radio" name="social" value="manhattan">Manhattan<br>
+					<input type="radio" name="social" value="statenisland">Staten Island [srsly?!]<br>
+					<input type="radio" name="social" value="queens">Queens [eww]
+				</form>
+				<form action="">
+            		<label>How long do you plan to stay there:</label><br><br>
+					<input type="radio" name="social" value="summer">Summer<br>
+					<input type="radio" name="social" value="fulltime">Fulltime
+				</form>
+				<form action="">
+            		<label>Do you have a room or need a room:</label><br><br>
+					<input type="radio" name="social" value="have">Have Room<br>
+					<input type="radio" name="social" value="need">Need Room<br>
 				</form>
 				<form action="">
             		<label>How often do you have guests overnight:</label><br><br>
