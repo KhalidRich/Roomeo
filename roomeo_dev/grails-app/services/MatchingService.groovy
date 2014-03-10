@@ -1,7 +1,5 @@
 package roomeo_dev
-
 import User
-
 
 class MatchingService
 {
@@ -15,7 +13,7 @@ class MatchingService
 		return score
 	}
 
-	def getTopTen(user, searchingService) 
+	def getTopTen(user) 
 	{
 		results = searchingService.searchUsersByLocation(user.attributes.location)
 		def topTen = []
@@ -26,14 +24,20 @@ class MatchingService
 		return topTen
 	}
 
-	def getUserMatchScores(user, filters, searchingService) 
+	def getUserMatchScores(userId, params)
 	{
+		def user = User.find({id = userId})
 		HashMap<User, Double> matchScores = new HashMap<User, Double>()
-		results = searchingService.getUsers(filters)
+		results = trim(user.personality, params)
 		for(person in results) {
 			score = scorePair(user, person)
 		}
 		return matchScores
+	}
+
+	def trim(personality, params)
+	{
+		trimmed = User.find({})
 	}
 
 	//Returns the cosine between vectors u and v
