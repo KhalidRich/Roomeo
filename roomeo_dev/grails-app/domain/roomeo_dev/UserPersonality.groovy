@@ -1,13 +1,13 @@
 package roomeo_dev
 
 class UserPersonality {
-	Integer bedtime
-	Integer wakeUp
-	Integer numSocialEvents
-	Integer bathroomCleanFreq
-	Integer comfortTemp
-	Integer numGuests
-	Integer freqGuests
+	String bedtime
+	String wakeUp
+	String numSocialEvents
+	String bathroomCleanFreq
+	String comfortTemp
+	String numGuests
+	String freqGuests
 	LikertScale religion
 	Double desiredLongitude
 	Double desiredLatitude

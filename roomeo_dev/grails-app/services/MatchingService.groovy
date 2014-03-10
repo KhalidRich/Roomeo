@@ -3,6 +3,10 @@ import User
 
 class MatchingService
 {
+	final TIME_MAP = ["10PM": 1, "12AM": 2, "2AM": 3, "12PM": 4]
+	final WAKE_UP_MAP = ["6AM": 1, "10AM", 2, "12AM": 3, "4PM": 4]
+	final FREQ_MAP = ["1/daily": 1, "1/weekly": 2, "1/biweekly": 3, "1/monthly": 4]
+	final RELIGIOUS_MAP = ["none": 1, "somewhat": 2, "mostimportant": 3]
 
 	def scorePair (user, person)
 	{
@@ -10,10 +14,10 @@ class MatchingService
 		def u = vectorize(user)
 		def v = vectorize(person)
 		score = cosBtwn(u,v)
-		return score
+		return (score + 1) / 2
 	}
 
-	def getTopTen(user) 
+	/*def getTopTen(user) 
 	{
 		results = searchingService.searchUsersByLocation(user.attributes.location)
 		def topTen = []
@@ -22,7 +26,7 @@ class MatchingService
 
 		}
 		return topTen
-	}
+	}*/
 
 	def getUserMatchScores(userId, params)
 	{
@@ -31,6 +35,7 @@ class MatchingService
 		results = trim(user.personality, params)
 		for(person in results) {
 			score = scorePair(user, person)
+			matchScores.add(user, score)
 		}
 		return matchScores
 	}
@@ -71,8 +76,16 @@ class MatchingService
 		return nNorm
 	}
 
-	def vectorize(u) 
+	def vectorize(personality) 
 	{
-		
+		def vector = []
+		vector.add(TIME_MAP[personality.bedtime])
+		vector.add(WAKE_UP_MAP[personality.wakeup])
+		vector.add(FREQ_MAP[personality.numSocialEvents])
+		vector.add(FREQ_MAP[personality.bathroomCleanFreq])
+		vector.add(FREQ_MAP[personality.freqGuests])
+		vector.add(RELIGIOUS_MAP[personality.religion])
+
+		return vector
 	}
 }
