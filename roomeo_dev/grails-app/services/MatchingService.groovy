@@ -35,9 +35,13 @@ class MatchingService
 		return matchScores
 	}
 
-	def trim(personality, params)
+	def trim(plty, params)
 	{
-		trimmed = User.find({})
+		trimmed = User.find({personality.desiredLocation : plty.desiredLocation}, 
+			{personality.dogFriendly : params.dogFriendly},
+			{personality.catFriendly : params.catFriendly})
+
+		return trimmed
 	}
 
 	//Returns the cosine between vectors u and v
@@ -69,7 +73,6 @@ class MatchingService
 
 	def vectorize(u) 
 	{
-		def v = []
-		return v
+		
 	}
 }

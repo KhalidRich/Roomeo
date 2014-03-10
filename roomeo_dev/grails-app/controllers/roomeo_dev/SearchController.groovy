@@ -8,7 +8,7 @@ class SearchController {
 
     def index() { 
 		if(request.post){
-			def matches = matchingService.getUserMatchScores(session.userId)
+			def matches = matchingService.getUserMatchScores(session.userId, params)
 			def users = new JSON([["sabina", 1245, "New York,NY"],["katrina", 1245, "Brooklyn,NY"]]);
 			return [users: users]
 		}
