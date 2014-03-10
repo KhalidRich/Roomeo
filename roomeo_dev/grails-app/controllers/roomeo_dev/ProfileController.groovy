@@ -15,6 +15,14 @@ class ProfileController {
 		 * need/have apt
 		 */
 	}
+	def edit() {
+		System.out.println("hi");
+		params.each { attr, i->
+			System.out.println("hi" + i);
+			
+		}
+		redirect(controller:"MatchesController",action:"index")
+	}
 	def matches() { 
 		redirect(controller:"MatchesController",action:"index")
 	}
