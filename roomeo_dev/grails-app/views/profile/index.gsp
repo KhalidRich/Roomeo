@@ -70,7 +70,7 @@
 						    </div>
 						</div>
 						
-						<button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
+						 <g:actionSubmit value="index" />
 				
 	  		    	 </div> <%--  question col>--%>
 	  		    	 
@@ -121,9 +121,10 @@
 					<input type="radio" name="social" value="somewhat">Somewhat<br>
 					<input type="radio" name="social" value="mostimportant">Most important thing in my life
 				</form>
+				 <g:actionSubmit value="index" />
         	</div>
 			
 		</div> <%-- my-tab-content >--%>
-	    
+	   
 	</body>
 </html>
