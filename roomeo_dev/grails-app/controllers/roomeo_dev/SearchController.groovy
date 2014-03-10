@@ -6,7 +6,7 @@ class SearchController {
 
     def index() { 
 		if(request.post){
-			def users = new JSON([["sabina", 1245, "New York,NY"],["katrina", 1245, "Brooklyn,NY"]]);
+			def users = new JSON([["sabina", 1245, "New York,NY"],["katrina", 1245, "Brooklyn,NY"]])
 			return [users: users]
 		}
     }
