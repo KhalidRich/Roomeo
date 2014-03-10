@@ -105,7 +105,7 @@ class User {
 	}
 	
 	/**
-	 * Adds a map of attributes to the specified user.
+	 * Adds a map of personalities to the specified user.
 	 * @param userid - the id of the user
 	 * @param attributes - a map of attributes to add
 	 * @return 0 on success. -1 on error
@@ -132,6 +132,17 @@ class User {
 		}
 		user.save()
 		return 0
+	}
+	
+	/**
+	 * With great power comes great responsibility.
+	 * Given a userid, returns a User object for you to do whatever you want to it.
+	 * @param id - The userid of the User object
+	 * @return A User whose User.id == id, or null on error
+	 */
+	public static User getUserFromID(Long id)
+	{
+		return User.get(id)
 	}
 	
 	static mapping = {

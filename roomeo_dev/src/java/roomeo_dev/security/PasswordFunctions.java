@@ -78,7 +78,7 @@ public class PasswordFunctions
 		// parts of the boolean[] will be in the same page, while they will both be in the same CPU
 		// cache (or not at all). Thus, the access time for either will be the same, and the second
 		// acts as a dummy.
-		boolean[] result = {true, false};
+		boolean[] result = {true, true};
 		for (int i = 0; i < hash.length && i < key.length; i++) {
 			if ((hash[i] != key[i]) && result[0])
 				result[0] = false;

@@ -80,6 +80,11 @@ grails.web.disable.multipart=false
 // request parameters to mask when logging exceptions
 grails.exceptionresolver.params.exclude = ['password']
 
+// Set nullable to true by default
+grails.gorm.default.constraints = {
+	'*'(nullable: true)
+}
+
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
