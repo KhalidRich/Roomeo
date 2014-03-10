@@ -10,7 +10,7 @@ class User {
 	String password
 	
 	UserAttributes attributes = new UserAttributes()
-	UserMatch matches = new UserMatch()
+	static hasMany = [matches: UserMatch]
 	Address address = new Address()
 	UserPersonality personality = new UserPersonality()
 	
@@ -158,7 +158,6 @@ class User {
 		password nullable: false, unique: true
 		
 		attributes nullable: false
-		matches nullable: false
 		address nullable: false
 		personality nullable: false
 	}
