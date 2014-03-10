@@ -9,6 +9,13 @@ class UserPersonality {
 	Integer numGuests
 	Integer freqGuests
 	LikertScale religion
+	Double desiredLongitude
+	Double desiredLatitude
+	List desiredLocation
+	Boolean haveRoom
+	Boolean needRoom
+	Boolean dogFriendly
+	Boolean catFriendly
 	
     static constraints = {
     }
