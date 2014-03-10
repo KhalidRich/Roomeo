@@ -80,7 +80,7 @@
 				    </label>
 				  </div>
 				  
-				  <g:actionSubmit value="index" />
+				  <g:actionSubmit value="Submit" action="index" />
 				
 				</g:form>
 			</div>
