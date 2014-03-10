@@ -55,9 +55,12 @@ class User {
 	public static Long verifyUser(String identification, String plainPassword)
 	{
 		// Get the user object
-		def user = User.findByUnameOrEmail(identification)
-		if (user == null)
-			return -1
+		def user = User.findByUname(identification)
+		if (user == null) {
+			user = User.findByEmail(identification)
+			if (user == null)
+			    return -1
+		}
 		// Get the user's actual password
 		def truePass = user.password
 		// Verify the user
