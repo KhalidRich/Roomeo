@@ -2,14 +2,14 @@ package roomeo_dev
 
 class UserAttributes {
 	String name
-	String email
-	String uname
 	Gender gender
+	Integer age
 
-	String password
 	Double longitude
 	Double latitude
 	List location
+	Address desiredLocation
+	Boolean hasRoom
 
 	static mapping = { location geoIndex:true }
 	static constraints = {
