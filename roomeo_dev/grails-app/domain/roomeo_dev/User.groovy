@@ -20,7 +20,7 @@ class User {
 	 * @param password - The password of the user. No restrictions
 	 * @return The userid on success. -1 if the user already existed. -2 for violating password restrictions. -3 for all other errors
 	 */
-	public Long createUser(String username, String plainPassword)
+	public Long crayUser(String username, String plainPassword)
 	{
 		// First, check to see if a user by this name exists
 		def user = User.findByUname(username)
@@ -43,6 +43,35 @@ class User {
 		user.save()
 		// Done
 		return user.id
+	}
+	
+	/**
+	 * Given some identification and password, returns whether or not the pair identifies a user
+	 * in our database.
+	 * @param identification - The user's email or username
+	 * @param plainPassword - The password in plain text (or maybe the eventual short hash)
+	 * @return The userid on success, -1 if the pair does not describe a valid user, and -2 on error
+	 */
+	public Long verifyUser(String identification, String plainPassword)
+	{
+		// Get the user object
+		def user = User.findByUnameOrEmail(identification)
+		if (user == null)
+			return -1
+		// Get the user's actual password
+		def truePass = user.password
+		// Verify the user
+		def valid
+		try {
+			valid = PasswordFunctions.verifyPassword(plainPassword, truePass)
+		} catch (InvalidKeySpecException e) {
+			return -2
+		} catch (NoSuchAlgorithmException e) {
+			return -2
+		}
+		if (valid)
+			return user.id
+		return -1
 	}
 	
 	static mapping = {
