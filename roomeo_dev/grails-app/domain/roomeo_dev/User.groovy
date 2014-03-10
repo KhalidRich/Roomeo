@@ -12,4 +12,6 @@ class User {
 	static embedded = ['address', 'personality', 'attributes']
     static constraints = {
     }
+	
+	
 }
