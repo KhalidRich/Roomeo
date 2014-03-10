@@ -95,6 +95,11 @@
   
 }
 
+#signup-background {
+  background-color: #88CEF2; 
+  
+}
+
 #abouth1 {
   font-size: 250%; 
   position: relative;
@@ -127,6 +132,16 @@
   top: 50%;
   left: 2%; 
   width: 220px; 
+  length: 600px; 
+  background: #F0F0F0; 
+
+}
+
+#registerpanel {
+  position: relative;
+  top: 50%;
+  left: 2%; 
+  width: 500px; 
   length: 600px; 
   background: #F0F0F0; 
 

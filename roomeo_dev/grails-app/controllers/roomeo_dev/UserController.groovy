@@ -28,7 +28,7 @@ class UserController {
 		session.user = null
 		redirect(controller:'home', action: 'index')	
 	}
-	def signup(){
-		
+	def register(){
+		redirect(controller:'subscription', action:'index')
 	}
 }
