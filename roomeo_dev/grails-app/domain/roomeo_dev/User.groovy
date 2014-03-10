@@ -80,21 +80,32 @@ class User {
 	 * @param attributes - a map of attributes to add
 	 * @return 0 on success. -1 on error
 	 */
-	public static int addUserAttributes(Long userid, Map attributes)
+	public static int addUserAttributes(Long userid, Map attributesToAdd)
 	{
 		// Get the user
 		def user = User.get(userid)
 		if (user == null)
 			return -1
-	}
-	
-	public static int addUserPersonalities(Long userid, Map personalities)
-	{
-		
+		// Get the possible attributes
+		def possAttr = user.attributes.class.fields
+		for (field in possAttr) {
+			// Retrieve the value of this attribute from the map
+			def attr = attributesToAdd.get(field.name)
+			// Make sure the map contained this field
+			if (attr != null) {
+				// Type mismatch, do nothing
+				if (!attr.class.equals(field.class))
+					continue
+				// Set the field
+				user.attributes.class.getField(field.name).set(user.attributes, attr)
+			}
+		}
+		user.save()
+		return 0
 	}
 	
 	static mapping = {
-		attributes index:true, indexAttributes: [unique:true, dropDups:true]
+		email index:true, indexAttributes: [unique:true, dropDups:true]
 	}
 	static embedded = ['address', 'personality', 'attributes']
 	static constraints = {
