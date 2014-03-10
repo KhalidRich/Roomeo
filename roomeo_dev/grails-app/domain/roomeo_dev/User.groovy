@@ -20,7 +20,7 @@ class User {
 	 * @param password - The password of the user. No restrictions
 	 * @return The userid on success. -1 if the user already existed. -2 for violating password restrictions. -3 for all other errors
 	 */
-	public Long crayUser(String username, String plainPassword)
+	public static Long crayUser(String username, String plainPassword)
 	{
 		// First, check to see if a user by this name exists
 		def user = User.findByUname(username)
@@ -52,7 +52,7 @@ class User {
 	 * @param plainPassword - The password in plain text (or maybe the eventual short hash)
 	 * @return The userid on success, -1 if the pair does not describe a valid user, and -2 on error
 	 */
-	public Long verifyUser(String identification, String plainPassword)
+	public static Long verifyUser(String identification, String plainPassword)
 	{
 		// Get the user object
 		def user = User.findByUnameOrEmail(identification)
@@ -72,6 +72,25 @@ class User {
 		if (valid)
 			return user.id
 		return -1
+	}
+	
+	/**
+	 * Adds a map of attributes to the specified user.
+	 * @param userid - the id of the user
+	 * @param attributes - a map of attributes to add
+	 * @return 0 on success. -1 on error
+	 */
+	public static int addUserAttributes(Long userid, Map attributes)
+	{
+		// Get the user
+		def user = User.get(userid)
+		if (user == null)
+			return -1
+	}
+	
+	public static int addUserPersonalities(Long userid, Map personalities)
+	{
+		
 	}
 	
 	static mapping = {

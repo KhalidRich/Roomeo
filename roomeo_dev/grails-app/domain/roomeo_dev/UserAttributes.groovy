@@ -3,6 +3,7 @@ package roomeo_dev
 class UserAttributes {
 	String name
 	Gender gender
+	Integer age
 
 	Double longitude
 	Double latitude
