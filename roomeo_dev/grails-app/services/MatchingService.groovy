@@ -1,5 +1,8 @@
 package roomeo_dev
 
+import User
+
+
 class MatchingService
 {
 
