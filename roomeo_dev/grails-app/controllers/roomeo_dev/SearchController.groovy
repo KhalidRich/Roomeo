@@ -1,10 +1,15 @@
 package roomeo_dev
 
+import grails.converters.JSON
+
 class SearchController {
 
     def index() { 
-		
-	}
+		if(request.post){
+			def users = new JSON([["sabina", 1245, "New York,NY"],["katrina", 1245, "Brooklyn,NY"]]);
+			return [users: users]
+		}
+    }
 	def profile() {
 		redirect(controller:"ProfileController",action:"index")
 	}
@@ -14,4 +19,12 @@ class SearchController {
 	def test(){
 		
 	}
+	
+//	def getsearchmatches(){
+//		render('../test/index')
+//		return
+////		render(view:"home")
+////		redirect(view:"index")
+////		redirect(template: "book", collection: [b1, b2, b3])
+//	}
 }

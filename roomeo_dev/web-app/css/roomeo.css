@@ -51,6 +51,21 @@
   background-color: rgb(128,203,242);
 }
 
+#map-canvas {
+  height: 100%;
+  position: absolute; 
+  top: 0; 
+  bottom: -200px; 
+  left: 0; 
+  right: 0; 
+  z-index: 0;
+}
+ 
+#container {
+  z-index: 100;
+  position: relative;
+}
+
 #homeh1 {
   font-size:170%;
   width: 300px; 
@@ -78,7 +93,6 @@
 .about {
   background-color: #88CEF2; 
   
-
 }
 
 #abouth1 {
@@ -108,16 +122,99 @@
   color: #808080; 
 }
 
+#searchpanel {
+  position: relative;
+  top: 50%;
+  left: 2%; 
+  width: 220px; 
+  length: 600px; 
+  background: #F0F0F0; 
 
+}
 
+#minrent {
+  width: 50px; 
+  position: relative;
+  left: -18%; 
+}
 
+#maxrent {
+  width: 50px; 
+  position: relative;
 
+}
 
+#to {
+  position: relative; 
+  left: -10%; 
+  display:inline
+}
 
+#rooms {
+  position: relative:
+  left: -200px; ;
+  top: 10%; 
+ 
+}
 
+#stay {
+  position: relative;
+  left: 0%;
+  top: 10%; 
+  width: 100px; 
+}
 
+#loc {
+  position: relative;
+  left: 0%;
+  top: 10%; 
+  width: 150px; 
+}
 
+#submitbutton {
+  background: #88CEF2;
+}
 
+.form-control {
+    white-space: nowrap;
+    display:inline
+}
 
+#map-canvas {
+   height: 100%;
+   position: absolute; 
+   top: 0; 
+   bottom: -200px; 
+   left: 0; 
+   right: 0; 
+   z-index: 0;
+ }
+ 
+#container {
+   z-index: 100;
+   position: relative;
+ }
+
+#inputfile {
+  display: inline;
+}
+
+#profilecontainer {
+  position: relative;
+  top: 20px; 
+  left: 0%;
+  width: 700px; 
+
+}
+
+#exampleInputFile {
+  position: relative;
+  left: -65px; 
+}
+
+#input {
+  position: relative;
+  left: 10%;
+}
 
 
