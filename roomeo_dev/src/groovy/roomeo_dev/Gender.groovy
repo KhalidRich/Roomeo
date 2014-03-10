@@ -2,5 +2,5 @@ package roomeo_dev
 
 enum Gender
 {
-	FEMALE, MALE
+	FEMALE, MALE, UNDISCLOSED, OTHER
 }
