@@ -8,5 +8,9 @@ class Address {
 	int zipCode
 	
     static constraints = {
+		streetAddress blank: false
+		city blank: false
+		city blank: false
+		country blank: false
     }
 }

@@ -18,5 +18,7 @@ class UserPersonality {
 	Boolean catFriendly
 	
     static constraints = {
+		bedtime range: 0..2400
+		wakeUp range: 0..2400
     }
 }

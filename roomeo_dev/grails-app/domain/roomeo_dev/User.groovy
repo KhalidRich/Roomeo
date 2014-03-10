@@ -9,10 +9,10 @@ class User {
 	String uname
 	String password
 	
-	UserAttributes attributes
-	UserMatch matches
-	Address address
-	UserPersonality personality
+	UserAttributes attributes = new UserAttributes()
+	UserMatch matches = new UserMatch()
+	Address address = new Address()
+	UserPersonality personality = new UserPersonality()
 	
 	/**
 	 * Given a user name and password, creates and saves this user in the database.
@@ -150,6 +150,13 @@ class User {
 	}
 	static embedded = ['address', 'personality', 'attributes']
 	static constraints = {
-		email email: true
+		email email: true, unique: true
+		uname unique: true, validator: { val, obj -> val != null && obj.email != null }
+		password nullable: false, unique: true
+		
+		attributes nullable: false
+		matches nullable: false
+		address nullable: false
+		personality nullable: false
 	}
 }
