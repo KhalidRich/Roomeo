@@ -28,3 +28,7 @@ dist
 *target-eclipse
 *c.tld
 *fmt.tld
+
+# Temporary files
+*~
+*.bak

@@ -150,8 +150,8 @@ class User {
 	}
 	static embedded = ['address', 'personality', 'attributes']
 	static constraints = {
-		email email: true, unique: true
-		uname unique: true, validator: { val, obj -> val != null && obj.email != null }
+		email email: true, unique: true, validator: { val -> val == null || val.endsWith(".edu") }
+		uname validator: { val, obj -> !(val == null && obj.email == null) }, unique: true
 		password nullable: false, unique: true
 		
 		attributes nullable: false
