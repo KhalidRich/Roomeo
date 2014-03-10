@@ -150,5 +150,6 @@ class User {
 	}
 	static embedded = ['address', 'personality', 'attributes']
 	static constraints = {
+		email email: true
 	}
 }
