@@ -8,6 +8,7 @@
       <g:render template="/templates/navbar" />
 	</head>
 	<body>
+		
 		<ul id="tabs" class="nav nav-tabs">
 			<li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
         	<li><a href="#survey" data-toggle="tab">Survey</a></li>
@@ -15,6 +16,7 @@
 		
 		<div  id="my-tab-content" class="tab-content">
 			<div class="tab-pane active" id="profile">
+			<g:form role="form" class="profileform" controller="profile" action="index">
             <div class="container" id="profilecontainer">
 	    		<div class="row">
 	    		
@@ -49,6 +51,27 @@
 						    </div>
 						</div>
 						
+						<div id="locationfield">
+				    		<label id="location"> Desired Location: </label>
+					    	<div class="form-group" id="input">
+								    <input type="text" class="form-control" id="locationfill" name="location" placeholder="Eg. NYC">
+						    </div>
+						</div>
+						
+						<div id="stayfield">
+				    		<label id="stay"> Length of Stay: </label>
+					    	<div class="form-group" id="input">
+								    <input type="text" class="form-control" id="stayfill" name="stay" placeholder="Summer/Fulltime">
+						    </div>
+						</div>
+						
+						<div id="roomfield">
+				    		<label id="room"> Have or Need Room: </label>
+					    	<div class="form-group" id="input">
+								    <input type="text" class="form-control" id="roomfill" name="gender" placeholder="Have/Need">
+						    </div>
+						</div>
+						
 						<div id="collegefield">
 				    		<label id="college"> College: </label>
 					    	<div class="form-group" id="input">
@@ -69,16 +92,15 @@
 								    <input type="text" class="form-control" id="pricefill" name="price" placeholder="Eg. 1000-5000">
 						    </div>
 						</div>
-						
-						<g:actionSubmit value="Submit" action="index" />
-				
+						<button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
 	  		    	 </div> <%--  question col>--%>
-	  		    	 
 		    	</div> <%-- row >--%>
 		    </div> <%-- container >--%>
+		    </g:form>
         	</div> <%-- tab-pane active l>--%>
 			
 			<div class="tab-pane" id="survey">
+			<g:form role="form" class="profileform" controller="profile" action="index">
             	<h1>Survey</h1><br>
             	<form action="">
             		<label>What time do you go to bed:</label><br><br>
@@ -121,9 +143,10 @@
 					<input type="radio" name="social" value="somewhat">Somewhat<br>
 					<input type="radio" name="social" value="mostimportant">Most important thing in my life
 				</form>
-				 <g:actionSubmit value="Submit" action="index" />
-        	</div>
-			
+				<button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
+        	</g:form>
+        	</div><%-- tab-pane >--%>
+		
 		</div> <%-- my-tab-content >--%>
 	   
 	</body>
