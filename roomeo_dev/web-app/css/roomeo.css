@@ -159,8 +159,9 @@
 
 #stay {
   position: relative;
-  left: -54%;
+  left: 0%;
   top: 10%; 
+  width: 100px; 
 }
 
 #loc {
@@ -194,7 +195,26 @@
    position: relative;
  }
 
+#inputfile {
+  display: inline;
+}
 
+#profilecontainer {
+  position: relative;
+  top: 20px; 
+  left: 0%;
+  width: 700px; 
 
+}
+
+#exampleInputFile {
+  position: relative;
+  left: -65px; 
+}
+
+#input {
+  position: relative;
+  left: 10%;
+}
 
 
