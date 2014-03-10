@@ -7,6 +7,8 @@ class UserAttributes {
 	Double longitude
 	Double latitude
 	List location
+	Address desiredLocation
+	Boolean hasRoom
 
 	static mapping = { location geoIndex:true }
 	static constraints = {

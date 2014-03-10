@@ -9,7 +9,6 @@ class UserPersonality {
 	Integer numGuests
 	Integer freqGuests
 	LikertScale religion
-	Address desiredLocation
 	
     static constraints = {
     }
