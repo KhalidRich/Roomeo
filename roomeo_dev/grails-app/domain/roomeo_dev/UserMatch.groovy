@@ -4,7 +4,6 @@ class UserMatch {
 	Long userId
 	Double compatibility
     
-    
     static belongsTo = [user: User]
 	static constraints = {
 		userId nullable: false, unique: true
