@@ -11,7 +11,7 @@ class UserPersonality {
 	LikertScale religion
 	Double desiredLongitude
 	Double desiredLatitude
-	List desiredLocation
+	Address desiredLocation
 	Boolean haveRoom
 	Boolean needRoom
 	Boolean dogFriendly

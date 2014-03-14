@@ -6,7 +6,11 @@ class SearchController {
 
     def index() { 
 		if(request.post){
-			def users = new JSON([["sabina", 1245, "New York,NY"],["katrina", 1245, "Brooklyn,NY"]])
+			def users = new JSON([["Ruby", 1245, "Brooklyn,NY",98, "${resource(dir: 'images', file: 'ruby.jpg')}"],
+								  ["Khalid", 1300, "Ridgewood,NY",54, "${resource(dir: 'images', file: 'khalid.jpg')}"],
+								  ["Mark", 1345, "Asoria,NY",23, "${resource(dir: 'images', file: 'mark.jpg')}"],
+								  ["Sabina", 1262, "Bedford,NY",68, "${resource(dir: 'images', file: 'sabina.jpg')}"],
+								  ])
 			return [users: users]
 		}
     }
