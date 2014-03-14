@@ -22,7 +22,7 @@ class ProfileController {
 
 	}
 	def edit() {
-		redirect(controller:"ProfileController",action:"createuser")
+		//redirect(controller:"ProfileController",action:"createuser")
 	}
 	def createuser(){
 		java.lang.Long userid = session.userId;

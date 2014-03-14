@@ -56,7 +56,7 @@ class User {
 	public static Long verifyUser(String identification, String plainPassword)
 	{
 		// Get the user object
-		def user = User.findByUnameOrEmail(identification)
+		def user = User.findByUname(identification)
 		if (user == null)
 			return -1
 		// Get the user's actual password
@@ -81,17 +81,53 @@ class User {
 	 * @param attributes - a map of attributes to add
 	 * @return 0 on success. -1 on error
 	 */
-	public static int addUserAttributes(Long userid, Map attributes)
+	public static int addUserAttributes(Long userid, Map attributesToAdd)
+	{
+		// Get the user
+		// Get the user
+		def user = User.get(userid)
+		if (user == null)
+			return -1
+		// Get the possible attributes
+		def possAttr = user.attributes.class.fields
+		for (field in possAttr) {
+			// Retrieve the value of this attribute from the map
+			def attr = attributesToAdd.get(field.name)
+			// Make sure the map contained this field
+			if (attr != null) {
+				// Type mismatch, do nothing
+				if (!attr.class.equals(field.class))
+					continue
+				// Set the field
+				user.attributes.class.getField(field.name).set(user.attributes, attr)
+			}
+		}
+		user.save()
+		return 0
+	}
+	
+	public static int addUserPersonalities(Long userid, Map personalitiesToAdd)
 	{
 		// Get the user
 		def user = User.get(userid)
 		if (user == null)
 			return -1
-	}
-	
-	public static int addUserPersonalities(Long userid, Map personalities)
-	{
-		
+		// Get the possible personalities
+		def possPers = user.personality.class.fields
+		for (field in possPers) {
+			// Retrieve the value of this personality from the map
+			def pers = personalitiesToAdd.get(field.name)
+			// Make sure the map contained this field
+			if (pers != null) {
+				// Type mismatch, do nothing
+				if (!pers.class.equals(field.class))
+					continue
+				// Set the field
+				user.personality.class.getField(field.name).set(user.personality, pers)
+			}
+		}
+		user.save()
+		return 0
 	}
 
 	/*
