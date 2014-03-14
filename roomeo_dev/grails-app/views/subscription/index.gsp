@@ -11,6 +11,9 @@
 	<g:render template="/templates/navbar" />
 	<div id='container'>
 	<center>
+	<g:if test="${errorMessage}">
+	<p> ${errorMessage}</p>
+	</g:if>
 	<div class="panel panel-default" id="registerpanel">
   		<div class="panel-heading">
     		<h3 class="panel-title">Sign Up to Find The Perfect Roommate!</h3>
@@ -25,9 +28,9 @@
 				  
 				  <div> <label>Password </label></div>
 				  <br>
-				  <div class="form-group" id="password">
-				    <input type="text" class="form-control" id="password" name="password">
-				  </div>
+		          <div class="form-group">
+		            <input type="password" class="input-medium" name="password" placeholder="password">
+		          </div>
 				  
 				  <div><label> School Email </label></div>
 				  <br>

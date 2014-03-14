@@ -25,14 +25,14 @@
 			<li><a href="${createLink(controller: 'user', action: 'logout')}">Log Out</a></li>
 		</g:if>
 		<g:else>
-			<li><a href="${createLink(controller: 'user', action: 'register')}">Sign Up</a></li>
+			<li><a href="${createLink(controller: 'subscription', action: 'index')}">Sign Up</a></li>
 			<li class="dropdown">
 			<div class="btn-group">
 			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 			    Log In <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu">
-			<g:form controller="user" action="login">
+			<g:form controller="user" action="login" params="[targetUri: (request.forwardURI - request.contextPath)]">
 		          <div class="form-group">
 		            <input type="text" class="input-medium" name="username" placeholder="username" size="20px">
 		          </div>
