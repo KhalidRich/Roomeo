@@ -89,7 +89,7 @@ class User {
 		if (user == null)
 			return -1
 		// Get the possible attributes
-		def possAttr = UserAttributes.class.getFields()
+		def possAttr = UserAttributes.class.getDeclaredFields()
 		for (field in possAttr) {
 		    println field.getName()
 			// Retrieve the value of this attribute from the map
