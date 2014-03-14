@@ -8,11 +8,12 @@ class User {
 	String email = ""
 	String uname
 	String password
+	Boolean verified
 	
-	UserAttributes attributes
-	UserMatch matches
-	Address address
-	UserPersonality personality
+	UserAttributes attributes = new UserAttributes()
+	static hasMany = [matches: UserMatch]
+	Address address = new Address()
+	UserPersonality personality = new UserPersonality()
 	
 	/**
 	 * Given a user name and password, creates and saves this user in the database.
@@ -40,7 +41,7 @@ class User {
 			return -2
 		// Create this user
 		user = new User(uname: username, password: pass)
-		user.save()
+		user.save(failOnError: true)
 		// Done
 		return user.id
 	}
@@ -94,7 +95,7 @@ class User {
 	}
 	
 	static mapping = {
-		attributes index:true, indexAttributes: [unique:true, dropDups:true]
+		attributes index:true
 	}
 	static embedded = ['address', 'personality', 'attributes']
 	static constraints = {
@@ -102,9 +103,9 @@ class User {
 		uname validator: { val, obj -> !(val == null && obj.email == null) }, unique: true
 		password nullable: false, unique: true
 		
-		attributes nullable: false
-		address nullable: false
-		personality nullable: false
-		verified nullable: false
+		attributes nullable: true
+		address nullable: true
+		personality nullable: true
+		verified nullable: true
 	}
 }

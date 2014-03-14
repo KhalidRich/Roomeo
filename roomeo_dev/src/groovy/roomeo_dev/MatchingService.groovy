@@ -34,7 +34,7 @@ class MatchingService
 		HashMap<User, Double> matchScores = new HashMap<User, Double>()
 
 		def results = []
-		
+
 		if(user.personality == null) {
 			results = User.find()
 		} else { 
@@ -78,7 +78,7 @@ class MatchingService
 		return dp
 	}
 
-	def norm(u, n) 
+	def nNorm(u, n) 
 	{
 		nNorm = 0.0
 		for(elem in u) {
