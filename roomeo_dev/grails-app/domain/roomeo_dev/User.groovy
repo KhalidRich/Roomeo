@@ -93,6 +93,7 @@ class User {
 		// Get the possible attributes
 		def possAttr = user.attributes.class.fields
 		for (field in possAttr) {
+		    println field.name
 			// Retrieve the value of this attribute from the map
 			def attr = attributesToAdd.get(field.name)
 			// Make sure the map contained this field
@@ -144,7 +145,7 @@ class User {
 	 * @param id - The userid of the User object
 	 * @return A User whose User.id == id, or null on error
 	 */
-	public static User getUserFromID(Long id)
+	public static User getUserFromId(Long id)
 	{
 		return User.get(id)
 	}
