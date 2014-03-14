@@ -20,7 +20,7 @@
 
 	<ul class="nav navbar-nav navbar-right">
 		<li><a href="${createLink(controller: 'search', action: 'index')}">Search</a></li>
-		<g:if test="${session.user}">
+		<g:if test="${session.userId}">
 			<li><a href="${createLink(controller: 'profile', action: 'index')}">Profile</a></li>
 			<li><a href="${createLink(controller: 'user', action: 'logout')}">Log Out</a></li>
 		</g:if>
@@ -40,6 +40,9 @@
 		            <input type="password" class="input-medium" name="password" placeholder="password">
 		          </div>
 		          <button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
+		          <g:if test="${errorMessage}">
+		          <p> ${errorMessage}</p>
+		          </g:if>
 			</g:form>
 			  </ul>
         </li>

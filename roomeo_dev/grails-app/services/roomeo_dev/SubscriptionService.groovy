@@ -9,9 +9,9 @@ class SubscriptionService {
 
     @Listener(namespace='plugin.emailConfirmation', topic='confirmed')
 		def userConfirmedSubscription(confirmation) {
-			def subscription = Subscription.findByEmail(confirmation.email)
+			def user = User.findByEmail(confirmation.email)
 				if (subscription) {
-					subscription.optedIn = true
+					user.verified = true
 					return [controller:'subscription', action:'welcome']
 				} else {
 				log.error "We don't have any record of this user"

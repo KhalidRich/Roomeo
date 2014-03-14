@@ -10,22 +10,24 @@ class UserController {
 		redirect(controller:"AboutController",action:"index")
 	}
 	def login() {
-//		redirect(controller:"SigninController",action:"index")
-//		render "login succeed"
-		// add simple validation to check username and password sent from client
-		// all parameters sent from client is stored in variable named params
-		if(params.username == "admin" && params.password=="pass"){
-			flash.message = "login succeed"
-			session.user = params.username
-			redirect(controller: 'profile', action: 'index')
+		int uid = User.verifyUser(params.username, params.password)
+		if(uid >= 0 ){
+			session.userId = uid
+			if(User.getUserFromID(uid).verfied){
+				return
 			}
+			else{
+				def errorMessage = "Please register!"
+				[errorMessage:errorMessage]
+			}
+		}
 		else{
-			flash.message = "login failed"
-			redirect(controller: 'home', action: 'index')
+			def errorMessage = "Invalid username/password. Try again!"
+			[errorMessage:errorMessage]
 		}
 	}
 	def logout() {
-		session.user = null
+		session.userId = null
 		redirect(controller:'home', action: 'index')	
 	}
 	def register(){
