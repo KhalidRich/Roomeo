@@ -60,6 +60,7 @@ grails.project.dependency.resolution = {
         // plugins for the compile step
         compile ":scaffolding:2.0.2"
         compile ':cache:1.1.1'
+        compile ":mail:1.0.4"
 		compile ":mongodb:1.3.1"
 
         // plugins needed at runtime but not for compilation
@@ -67,6 +68,7 @@ grails.project.dependency.resolution = {
         runtime ":database-migration:1.3.8"
         runtime ":jquery:1.11.0"
         runtime ":resources:1.2.1"
+        runtime ":email-confirmation:2.0.8"
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"

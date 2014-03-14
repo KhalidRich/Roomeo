@@ -12,7 +12,10 @@
     	  var myLatlng = new google.maps.LatLng(40.67,-73.94);
     	  var mapOptions = {
     	    zoom: 10,
-    	    center: myLatlng
+    	    center: myLatlng,
+    	    panControl: false,
+    	    zoomControl: false,
+    	    scaleControl: true
     	  };
 		
     	  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -32,7 +35,7 @@
 	<g:render template="/templates/navbar" />
 		<div class="panel panel-default" id="searchpanel">
 			 <div class="panel-body" id="panelbody">
-				<g:form role="form" class="searchform">
+				<g:form role="form" class="searchform" controller="search" action="index">
 				
 				  <div><label> Location </label></div>
 				  <br>
@@ -80,9 +83,9 @@
 				    </label>
 				  </div>
 				  
-				  <g:actionSubmit value="Submit" action="index" />
-				
-				</g:form>
+				  <%--<g:actionSubmit value="Submit" action="index" />--%>
+				  <button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
+				  </g:form>
 			</div>
 			</div>
 		</div>

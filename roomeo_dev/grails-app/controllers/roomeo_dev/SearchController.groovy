@@ -6,8 +6,8 @@ import services.MatchingService
 class SearchController {
 	MatchingService matchingService = new MatchingService()
 
-    def index() { 
-		if(request.post){
+    def index() 
+    { 
 			def matches = matchingService.getUserMatchScores(session.userId, params)
 			def kvPairs = matches.entrySet().toArray()
 			def users = []

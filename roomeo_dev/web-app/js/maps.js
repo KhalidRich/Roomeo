@@ -84,10 +84,11 @@ function setContet(user){
 	var contentString = '<div id="content">'+
     '<div id="siteNotice">'+
     '</div>'+
-    '<h1 id="firstHeading" class="firstHeading">' + user[0] + '</h1>'+
-    '<div id="bodyContent">'+
+    '<h1 id="firstHeading" class="firstHeading">' + '<img src="' + user[4] + '" height="80" width="80">' + user[0] + '</h1>'+
+    '<div id="bodyContent">'+ 
     '<li>Max Desired Rent: ' + user[1] + '</li>'+
     '<li>Desired Location to Rent: ' + user[2] + '</li>'+
+    '<li>Match Percentage: ' + user[3] + '</li>'+
     '</div>'+
     '</div>';
 	return contentString
