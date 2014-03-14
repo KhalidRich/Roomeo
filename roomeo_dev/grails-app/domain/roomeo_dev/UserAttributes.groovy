@@ -13,5 +13,7 @@ class UserAttributes {
 
 	static mapping = { location geoIndex:true }
 	static constraints = {
+		age min: 18
+		name blank: false
 	}
 }
