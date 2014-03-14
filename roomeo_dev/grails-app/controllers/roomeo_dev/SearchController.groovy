@@ -21,8 +21,8 @@ class SearchController {
 			}
 			//def users = new JSON([["sabina", 1245, "New York,NY"],["katrina", 1245, "Brooklyn,NY"]]);
 			return [users: new JSON(users)]
-		}
-    }
+	}
+
 	def profile() {
 		redirect(controller:"ProfileController",action:"index")
 	}
@@ -32,6 +32,8 @@ class SearchController {
 	def test(){
 		
 	}
+}
+
 	
 //	def getsearchmatches(){
 //		render('../test/index')
@@ -40,4 +42,4 @@ class SearchController {
 ////		redirect(view:"index")
 ////		redirect(template: "book", collection: [b1, b2, b3])
 //	}
-}
+

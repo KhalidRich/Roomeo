@@ -93,6 +93,17 @@ class User {
 	{
 		
 	}
+
+	/*
+	 * With great power comes great responsibility.
+	 * Given a userid, returns a User object for you to do whatever you want to it.
+	 * @param id - The userid of the User object
+	 * @return A User whose User.id == id, or null on error
+	 */
+	public static User getUserFromID(Long id)
+	{
+		return User.get(id)
+	}
 	
 	static mapping = {
 		attributes index:true

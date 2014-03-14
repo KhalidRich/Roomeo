@@ -5,7 +5,7 @@ import roomeo_dev.Gender.*;
 class ProfileController {
 
 	def index() {
-		java.lang.Long userid = session.userID;
+		java.lang.Long userid = session.userId;
 		def attrmap = (User.getUserFromID(userid)).attributes;
 		def name = attrmap["name"];
 		def age = attrmap["age"];
@@ -24,7 +24,7 @@ class ProfileController {
 		//redirect(controller:"ProfileController",action:"createuser")
 	}
 	def createuser(){
-		java.lang.Long userid = session.userID;
+		java.lang.Long userid = session.userId;
 		def attrmap = [:];
 		def permap = [:];
 		
