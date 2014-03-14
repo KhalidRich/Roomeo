@@ -16,7 +16,7 @@
 		
 		<div  id="my-tab-content" class="tab-content">
 			<div class="tab-pane active" id="profile">
-			<g:form role="form" class="profileform" controller="profile" action="index">
+			<g:form role="form" class="profileform" controller="profile" action="createuser">
             <div class="container" id="profilecontainer">
 	    		<div class="row">
 	    		
