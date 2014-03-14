@@ -5,7 +5,7 @@ import java.security.spec.InvalidKeySpecException
 import roomeo_dev.security.PasswordFunctions;
 
 class User {
-	String email
+	String email = ""
 	String uname
 	String password
 	
@@ -98,5 +98,13 @@ class User {
 	}
 	static embedded = ['address', 'personality', 'attributes']
 	static constraints = {
+		email email: true, nullable: false, validator: { val -> val.equals("") || val.endsWith(".edu") }
+		uname validator: { val, obj -> !(val == null && obj.email == null) }, unique: true
+		password nullable: false, unique: true
+		
+		attributes nullable: false
+		address nullable: false
+		personality nullable: false
+		verified nullable: false
 	}
 }
