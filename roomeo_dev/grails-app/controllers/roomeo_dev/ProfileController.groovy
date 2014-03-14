@@ -6,7 +6,7 @@ class ProfileController {
 
 	def index() {
 		java.lang.Long userid = session.userID;
-		def attrmap = (User.get(userid)).attributes;
+		def attrmap = (User.getUserFromID(userid)).attributes;
 		def name = attrmap["name"];
 		def age = attrmap["age"];
 		def gender = attrmap["gender"];
