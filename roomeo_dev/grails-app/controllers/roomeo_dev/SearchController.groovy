@@ -1,7 +1,7 @@
 package roomeo_dev
 
 import grails.converters.JSON
-import MatchesController
+import services.MatchingService
 
 class SearchController {
 	MatchingService matchingService = new MatchingService()
@@ -9,8 +9,18 @@ class SearchController {
     def index() { 
 		if(request.post){
 			def matches = matchingService.getUserMatchScores(session.userId, params)
-			def users = new JSON([["sabina", 1245, "New York,NY"],["katrina", 1245, "Brooklyn,NY"]]);
-			return [users: users]
+			def kvPairs = matches.entrySet().toArray()
+			def users = []
+
+			for(pair in kvPairs) {
+				def u = []
+				def user = pair.getKey()
+				u.add(user.uname)
+				u.add(pair.getValue())
+				users.add(u)
+			}
+			//def users = new JSON([["sabina", 1245, "New York,NY"],["katrina", 1245, "Brooklyn,NY"]]);
+			return [users: new JSON(users)]
 		}
     }
 	def profile() {

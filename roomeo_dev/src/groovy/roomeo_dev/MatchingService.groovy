@@ -1,12 +1,12 @@
-package roomeo_dev
-import User
+package services
+import roomeo_dev.User
 
 class MatchingService
 {
-	final TIME_MAP = ["10PM": 1, "12AM": 2, "2AM": 3, "12PM": 4]
-	final WAKE_UP_MAP = ["6AM": 1, "10AM", 2, "12AM": 3, "4PM": 4]
-	final FREQ_MAP = ["1/daily": 1, "1/weekly": 2, "1/biweekly": 3, "1/monthly": 4]
-	final RELIGIOUS_MAP = ["none": 1, "somewhat": 2, "mostimportant": 3]
+	final TIME_MAP = ["10PM":1, "12AM":2, "2AM":3, "12PM":4]
+	final WAKE_UP_MAP = ["6AM":1, "10AM":2, "12AM":3, "4PM":4]
+	final FREQ_MAP = ["1/daily":1, "1/weekly":2, "1/biweekly":3, "1/monthly":4]
+	final RELIGIOUS_MAP = ["none":1, "somewhat":2, "mostimportant":3]
 
 	def scorePair (user, person)
 	{
@@ -30,21 +30,32 @@ class MatchingService
 
 	def getUserMatchScores(userId, params)
 	{
-		def user = User.find({id = userId})
+		def user = User.find(id:userId)
 		HashMap<User, Double> matchScores = new HashMap<User, Double>()
-		results = trim(user.personality, params)
+
+		def results = []
+		
+		if(user.personality == null) {
+			results = User.find()
+		} else { 
+			results = trim(user.personality, params)
+		}
+
 		for(person in results) {
 			score = scorePair(user, person)
-			matchScores.add(user, score)
+			matchScores.put(user, score)
 		}
 		return matchScores
 	}
 
 	def trim(plty, params)
 	{
-		trimmed = User.find({personality.desiredLocation : plty.desiredLocation}, 
-			{personality.dogFriendly : params.dogFriendly},
-			{personality.catFriendly : params.catFriendly})
+		if(plty == null) {
+			return User.find()
+		}
+		trimmed = User.find([(personality.desiredLocation):plty.desiredLocation, 
+			(personality.dogFriendly):params.dogFriendly,
+			(personality.catFriendly):params.catFriendly])
 
 		return trimmed
 	}
