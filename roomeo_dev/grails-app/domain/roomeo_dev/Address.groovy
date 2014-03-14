@@ -1,6 +1,8 @@
 package roomeo_dev
 
 class Address {
+    User user
+    
 	String streetAddress
 	String city
 	String state

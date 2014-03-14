@@ -10,10 +10,8 @@ class User {
 	String password
 	Boolean verified
 	
-	UserAttributes attributes = new UserAttributes()
+	static hasOne = [attributes: UserAttributes, personality: UserPersonality, address: Address]
 	static hasMany = [matches: UserMatch]
-	Address address = new Address()
-	UserPersonality personality = new UserPersonality()
 	
 	/**
 	 * Given a user name and password, creates and saves this user in the database.
@@ -89,17 +87,23 @@ class User {
 		if (user == null)
 			return -1
 		// Get the possible attributes
-		def possAttr = user.attributes.class.fields
+		def possAttr = UserAttributes.class.getFields()
 		for (field in possAttr) {
+		    println field.getName()
 			// Retrieve the value of this attribute from the map
-			def attr = attributesToAdd.get(field.name)
+			def attr = attributesToAdd.get(field.getName())
 			// Make sure the map contained this field
 			if (attr != null) {
 				// Type mismatch, do nothing
-				if (!attr.class.equals(field.class))
+				if (!attr.class.equals(field.getType()))
 					continue
 				// Set the field
-				user.attributes.class.getField(field.name).set(user.attributes, attr)
+				if (!field.isAccessible()) {
+				    field.setAccessible(true)
+				    field.set(user.attributes, attr)
+				    field.setAccessible(false)
+				} else
+				    field.set(user.attributes, attr)
 			}
 		}
 		user.save()
@@ -136,7 +140,7 @@ class User {
 	 * @param id - The userid of the User object
 	 * @return A User whose User.id == id, or null on error
 	 */
-	public static User getUserFromID(Long id)
+	public static User getUserFromId(Long id)
 	{
 		return User.get(id)
 	}
@@ -155,5 +159,7 @@ class User {
 		address nullable: true
 		personality nullable: true
 		verified nullable: true
+		uname validator: { val, obj -> !(val == null && obj.email == "") }
+		password nullable: false
 	}
 }

@@ -1,13 +1,13 @@
 package roomeo_dev
 
 class UserPersonality {
-	String bedtime
-	String wakeUp
-	String numSocialEvents
-	String bathroomCleanFreq
-	String comfortTemp
-	String numGuests
-	String freqGuests
+	Integer bedtime
+	Integer wakeUp
+	Integer numSocialEvents
+	Integer bathroomCleanFreq
+	Integer comfortTemp
+	Integer numGuests
+	Integer freqGuests
 	LikertScale religion
 	Double desiredLongitude
 	Double desiredLatitude
@@ -16,6 +16,7 @@ class UserPersonality {
 	Boolean needRoom
 	Boolean dogFriendly
 	Boolean catFriendly
+	
 	
     static constraints = {
 		bedtime range: 0..2400
