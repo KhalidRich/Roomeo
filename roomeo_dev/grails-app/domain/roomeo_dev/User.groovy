@@ -10,10 +10,10 @@ class User {
 	String password
 	Boolean verified = false
 	
-	UserAttributes attributes = new UserAttributes()
+	static hasOne = [attributes: UserAttributes]
 	static hasMany = [matches: UserMatch]
-	Address address = new Address()
-	UserPersonality personality = new UserPersonality()
+	static hasOne = [personality: UserPersonality]
+	static hasOne = [address: Address]
 	
 	/**
 	 * Given a user name and password, creates and saves this user in the database.
@@ -156,12 +156,7 @@ class User {
 	static embedded = ['address', 'attributes']
 	static constraints = {
 		email email: true, nullable: false, validator: { val -> val.equals("") || val.endsWith(".edu") }
-		uname validator: { val, obj -> !(val == null && obj.email == null) }
-		password nullable: false, unique: true
-		
-		attributes nullable: false
-		address nullable: false
-		personality nullable: false
-		verified nullable: false
+		uname validator: { val, obj -> !(val == null && obj.email == "") }
+		password nullable: false
 	}
 }

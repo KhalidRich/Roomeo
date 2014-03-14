@@ -1,6 +1,8 @@
 package roomeo_dev
 
 class UserPersonality {
+    User user
+    
 	Integer bedtime
 	Integer wakeUp
 	Integer numSocialEvents

@@ -1,6 +1,8 @@
 package roomeo_dev
 
 class UserAttributes {
+    User user
+    
 	String name
 	String profilePicturePath
 	Gender gender
