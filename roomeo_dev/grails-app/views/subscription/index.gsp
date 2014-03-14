@@ -13,7 +13,7 @@
 	<center>
 	<div class="panel panel-default" id="registerpanel">
   		<div class="panel-heading">
-    		<h3 class="panel-title">Register to Find The Perfect Roommate!</h3>
+    		<h3 class="panel-title">Sign Up to Find The Perfect Roommate!</h3>
   		</div>
   		<div class="panel-body">
 				<g:form role="form" class="searchform" controller="subscription" action="subscribe">

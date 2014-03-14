@@ -20,8 +20,12 @@ class SubscriptionController {
 		// Send the email confirmation
 		emailConfirmationService.sendConfirmation([
 		to: params.schoolemail,
-//		from: 'noreply@roomeo.com',
-		subject: 'Confrim Roomeo Membership!'
+		from: 'noreply@roomeo.com',
+		subject: 'Confrim Roomeo Membership!',
+		event: 'signup',
+		eventNamespace: 'app',
+		view: "/mailtemplates/_signup_confirmation.gsp",
+		model: [promoBrandName:'Roomeo']
 		])
 		
 	}
