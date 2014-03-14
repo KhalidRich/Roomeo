@@ -8,6 +8,7 @@ class User {
 	String email
 	String uname
 	String password
+	Boolean verified = false
 	
 	UserAttributes attributes = new UserAttributes()
 	static hasMany = [matches: UserMatch]
@@ -160,5 +161,6 @@ class User {
 		attributes nullable: false
 		address nullable: false
 		personality nullable: false
+		verified nullable: false
 	}
 }
