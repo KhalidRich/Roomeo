@@ -8,10 +8,22 @@
       <g:render template="/templates/navbar" />
 	</head>
 	<body>
-	<%-- add edit button
-		<g:form role="form" class="profileform" controller="profile" action="edit">
-		<button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
-		</g:form>
-	--%>
+		 <div class="container" id="profilecontainer">
+	    		<div class="row">
+	    		     <div class="col-sm-6">
+	    		     	<p> PICTURE </p>
+	    		     </div>
+	    	   	     <div class="col-sm-6">
+	    	   	     	<p>Name: ${name}</p>
+	    		     	<p>Age: ${age}</p>
+	    		     	<p>Gender: ${gender}</p>
+	    		     	<p>College: ${college}</p>
+	    		     	<p>Area of Study: ${study}</p>
+	    		     	<p>Desired Location: ${desired}</p>
+	    		     	<p>Price ${price}</p>
+	    	   	     </div>
+	    	   </div> <%--row --%>
+        </div> <%-- container--%> 
+	
 	</body>
 </html>

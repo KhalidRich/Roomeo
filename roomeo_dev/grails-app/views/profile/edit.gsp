@@ -79,68 +79,63 @@
         	</div> <%-- tab-pane active l>--%>
 			
 			<div class="tab-pane" id="survey">
-			<g:form role="form" class="profileform" controller="profile" action="edit">
+			<g:form role="form" class="profileform" controller="profile" action="createuser">
+			<div class="container" id="profilecontainer">
             	<h1>Survey</h1><br>
-            	<form action="">
-            		<label>What time do you go to bed:</label><br><br>
-					<input type="radio" name="bedtime" value="10PM">10PM<br>
-					<input type="radio" name="bedtime" value="12AM">12AM<br>
-					<input type="radio" name="bedtime" value="2AM">2AM<br>
-					<input type="radio" name="bedtime" value="12PM">12PM
-				</form>
-				<form action="">
+            	
+				
             		<label>What time do you wake up:</label><br><br>
-					<input type="radio" name="waketime" value="6AM">6AM<br>
-					<input type="radio" name="waketime" value="10AM">10AM<br>
-					<input type="radio" name="waketime" value="12PM">12PM<br>
-					<input type="radio" name="waketime" value="4PM">4PM
-				</form>
-				<form action="">
-            		<label>How many social events do you have?</label><br><br>
-					<input type="radio" name="social" value="1/daily">1/daily<br>
-					<input type="radio" name="social" value="1/weekly">1/weekly<br>
-					<input type="radio" name="social" value="1/biweekly">1/biweekly<br>
-					<input type="radio" name="social" value="1/monthly">1/monthly
-				</form>
-			    <form action="">
+					<input type="radio" name="wakeup" value="6" />6AM<br>
+					<input type="radio" name="wakeup" value="10" />10AM<br>
+					<input type="radio" name="wakeup" value="12" />12PM<br>
+					<input type="radio" name="wakeup" value="16" />4PM<br>
+				
+            		<label>What time do you go to bed:</label><br><br>
+					<input type="radio" name="bedtime" value="22" />10PM<br>
+					<input type="radio" name="bedtime" value="0" />12AM<br>
+					<input type="radio" name="bedtime" value="2" />2AM<br>
+					<input type="radio" name="bedtime" value="12" />12PM<br>
+				
+            		<label>How many social events do you have:</label><br><br>
+					<input type="radio" name="social" value="1">1/daily<br>
+					<input type="radio" name="social" value="7">1/weekly<br>
+					<input type="radio" name="social" value="14">1/biweekly<br>
+					<input type="radio" name="social" value="31">1/monthly<br>
+				
             		<label>What is your level of cleanliness:</label><br><br>
-					<input type="radio" name="social" value="1/daily">1/daily<br>
-					<input type="radio" name="social" value="1/weekly">1/weekly<br>
-					<input type="radio" name="social" value="1/biweekly">1/biweekly<br>
-					<input type="radio" name="social" value="1/monthly">1/monthly
-				</form>
-				<form action="">
+					<input type="radio" name="clean" value="1">1/daily<br>
+					<input type="radio" name="clean" value="7">1/weekly<br>
+					<input type="radio" name="clean" value="14">1/biweekly<br>
+					<input type="radio" name="clean" value="31">1/monthly<br>
+
             		<label>Where is your desired location:</label><br><br>
-					<input type="radio" name="social" value="brooklyn">Brooklyn [hispter!]<br>
-					<input type="radio" name="social" value="bronx">Bronx<br>
-					<input type="radio" name="social" value="manhattan">Manhattan<br>
-					<input type="radio" name="social" value="statenisland">Staten Island [srsly?!]<br>
-					<input type="radio" name="social" value="queens">Queens [eww]
-				</form>
-				<form action="">
+					<input type="radio" name="desired" value="brooklyn">Brooklyn [hispter!]<br>
+					<input type="radio" name="desired" value="bronx">Bronx<br>
+					<input type="radio" name="desired" value="manhattan">Manhattan<br>
+					<input type="radio" name="desired" value="statenisland">Staten Island [srsly?!]<br>
+					<input type="radio" name="desired" value="queens">Queens [eww]<br>
+
             		<label>How long do you plan to stay there:</label><br><br>
-					<input type="radio" name="social" value="summer">Summer<br>
-					<input type="radio" name="social" value="fulltime">Fulltime
-				</form>
-				<form action="">
+					<input type="radio" name="stay" value="summer">Summer<br>
+					<input type="radio" name="stay" value="fulltime">Fulltime<br>
+
             		<label>Do you have a room or need a room:</label><br><br>
-					<input type="radio" name="social" value="have">Have Room<br>
-					<input type="radio" name="social" value="need">Need Room<br>
-				</form>
-				<form action="">
+					<input type="radio" name="room" value="have">Have Room<br>
+					<input type="radio" name="room" value="need">Need Room<br>
+
             		<label>How often do you have guests overnight:</label><br><br>
-					<input type="radio" name="social" value="1/daily">1/daily<br>
-					<input type="radio" name="social" value="1/weekly">1/weekly<br>
-					<input type="radio" name="social" value="1/biweekly">1/biweekly<br>
-					<input type="radio" name="social" value="1/monthly">1/monthly
-				</form>
-				<form action="">
+					<input type="radio" name="guests" value="1">1/daily<br>
+					<input type="radio" name="guests" value="7">1/weekly<br>
+					<input type="radio" name="guests" value="14">1/biweekly<br>
+					<input type="radio" name="guests" value="31">1/monthly<br>
+
             		<label>How religious are you:</label><br><br>
-					<input type="radio" name="social" value="none">None<br>
-					<input type="radio" name="social" value="somewhat">Somewhat<br>
-					<input type="radio" name="social" value="mostimportant">Most important thing in my life
-				</form>
+					<input type="radio" name="religious" value="NEVER">None<br>
+					<input type="radio" name="religious" value="SOMEWHAT_LIKELY">Somewhat<br>
+					<input type="radio" name="religious" value="ALWAYS">Most important thing in my life<br>
+
 				<button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
+        	</div>
         	</g:form>
         	</div><%-- tab-pane >--%>
 		
