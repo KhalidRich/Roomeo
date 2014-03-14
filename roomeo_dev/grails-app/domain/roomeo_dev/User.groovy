@@ -107,11 +107,12 @@ class User {
 	
 	static mapping = {
 		attributes index:true
+		uname index:true, indexAttributes: [unique:true, dropDups:true]
 	}
-	static embedded = ['address', 'personality', 'attributes']
+	static embedded = ['address', 'attributes']
 	static constraints = {
 		email email: true, nullable: false, validator: { val -> val.equals("") || val.endsWith(".edu") }
-		uname validator: { val, obj -> !(val == null && obj.email == null) }, unique: true
+		uname validator: { val, obj -> !(val == null && obj.email == null) }
 		password nullable: false, unique: true
 		
 		attributes nullable: true
