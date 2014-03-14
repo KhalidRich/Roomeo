@@ -16,12 +16,24 @@ class ProfileController {
 		 */
 	}
 	def edit() {
-		System.out.println("hi");
-		params.each { attr, i->
-			System.out.println("hi" + i);
-			
+//		System.out.println("hi");
+		def attrmap = []; 
+//		
+		def name = params.name;
+		if (name){
+		   assert attrmap == ["name": name];
 		}
-		redirect(controller:"MatchesController",action:"index")
+//		def age = params.age;
+//		if (age){
+//		   assert attrmap == ["age": age];
+//		}
+//		def gender = params.gender;
+//		if (gender){
+//		   assert attrmap == ["gender": gender];
+//		}
+		System.out.println("hey" + attrmap);
+//		
+//		redirect(controller:"MatchesController",action:"index")
 	}
 	def matches() { 
 		redirect(controller:"MatchesController",action:"index")

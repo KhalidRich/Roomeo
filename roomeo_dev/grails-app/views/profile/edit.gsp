@@ -16,7 +16,7 @@
 		
 		<div  id="my-tab-content" class="tab-content">
 			<div class="tab-pane active" id="profile">
-			<g:form role="form" class="profileform" controller="profile" action="edit">
+			<g:form role="form" class="profileform" controller="profile" action="index">
             <div class="container" id="profilecontainer">
 	    		<div class="row">
 	    		
@@ -33,35 +33,35 @@
 			    		<div id="namefield">
 				    		<label id="name"> Name: </label>
 					    	<div class="form-group" id="input">
-								    <input type="text" class="form-control" id="namefill" name="attr" value="name" placeholder="Your Name">
+								    <input type="text" class="form-control" id="namefill" name="name" placeholder="Your Name">
 						    </div>
 						</div>
 				    	
 				    	<div id="agefield">
 				    		<label id="age"> Age: </label>
 					    	<div class="form-group" id="input">
-								    <input type="text" class="form-control" id="agefill" name="attr" value="age" placeholder="Your Age">
+								    <input type="text" class="form-control" id="agefill" name="age" placeholder="Your Age">
 						    </div>
 						</div>
 						
 						<div id="genderfield">
 				    		<label id="gender"> Gender: </label>
 					    	<div class="form-group" id="input">
-								    <input type="text" class="form-control" id="genderfill" name="attr" value="gender" placeholder="Your Gender">
+								    <input type="text" class="form-control" id="genderfill" name="gender" placeholder="Your Gender">
 						    </div>
 						</div>
 						
 						<div id="collegefield">
 				    		<label id="college"> College: </label>
 					    	<div class="form-group" id="input">
-								    <input type="text" class="form-control" id="collegefill" name="attr" value="college" placeholder="Your College">
+								    <input type="text" class="form-control" id="collegefill" name="college" placeholder="Your College">
 						    </div>
 						</div>
 						
 						<div id="studyfield">
 				    		<label id="study"> Area of Study: </label>
 					    	<div class="form-group" id="input">
-								    <input type="text" class="form-control" id="studyfill" name="attr" value="study" placeholder="Area of Study:">
+								    <input type="text" class="form-control" id="studyfill" name="study" placeholder="Area of Study:">
 						    </div>
 						</div>
 						
