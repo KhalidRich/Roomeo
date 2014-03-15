@@ -7,7 +7,7 @@ class Address {
 	String city
 	String state
 	String country
-	int zipCode
+	Integer zipCode
 	
     static constraints = {
 		streetAddress blank: false

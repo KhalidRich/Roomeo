@@ -38,8 +38,8 @@ class User {
 		if (pass == null)
 			return -2
 		// Create this user
-		user = new User(uname: username, password: pass)
-		user.save(failOnError: true)
+		user = new User(uname: username, password: pass, attributes: new UserAttributes(), personality: new UserPersonality(), address: new Address())
+		user.save()
 		// Done
 		return user.id
 	}
@@ -87,7 +87,11 @@ class User {
 		if (user == null)
 			return -1
 		// Get the possible attributes
-		def possAttr = UserAttributes.class.getFields()
+		def possAttr = user.attributes.class.getDeclaredFields()
+		if (user.attributes == null) {
+		    println "It's null dummy"
+		    return 0
+		}
 		for (field in possAttr) {
 		    println field.getName()
 			// Retrieve the value of this attribute from the map
@@ -106,6 +110,7 @@ class User {
 				    field.set(user.attributes, attr)
 			}
 		}
+		println "user attributes: ${user.attributes}"
 		user.save()
 		return 0
 	}
@@ -116,20 +121,31 @@ class User {
 		def user = User.get(userid)
 		if (user == null)
 			return -1
-		// Get the possible personalities
-		def possPers = user.personality.class.fields
-		for (field in possPers) {
-			// Retrieve the value of this personality from the map
-			def pers = personalitiesToAdd.get(field.name)
+		// Get the possible attributes
+		def possAttr = user.personalities.class.getDeclaredFields()
+		if (user.personalities == null) {
+		    println "It's null dummy"
+		    return 0
+		}
+		for (field in possAttr) {
+		    println field.getName()
+			// Retrieve the value of this attribute from the map
+			def attr = personalitiesToAdd.get(field.getName())
 			// Make sure the map contained this field
-			if (pers != null) {
+			if (attr != null) {
 				// Type mismatch, do nothing
-				if (!pers.class.equals(field.class))
+				if (!attr.class.equals(field.getType()))
 					continue
 				// Set the field
-				user.personality.class.getField(field.name).set(user.personality, pers)
+				if (!field.isAccessible()) {
+				    field.setAccessible(true)
+				    field.set(user.personalities, attr)
+				    field.setAccessible(false)
+				} else
+				    field.set(user.personalities, attr)
 			}
 		}
+		println "user personalities: ${user.personalities}"
 		user.save()
 		return 0
 	}
@@ -149,7 +165,6 @@ class User {
 		attributes index:true
 		uname index:true, indexAttributes: [unique:true, dropDups:true]
 	}
-	static embedded = ['address', 'attributes']
 	static constraints = {
 		email email: true, nullable: false, validator: { val -> val.equals("") || val.endsWith(".edu") }
 		uname validator: { val, obj -> !(val == null && obj.email == null) }
