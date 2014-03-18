@@ -13,8 +13,9 @@ class ProfileController {
 		def college = attrmap["college"];
 		def study = attrmap["study"];
 		def desired = attrmap["desiredLocation"];
-		def price = attrmap["price"]; 
-		["name":name, "age":age, "gender":gender, "college": college, "study": study, "desired": desired, "price": price];
+		def startprice = attrmap["startPriceRange"]; 
+		def endprice = attrmap["endPriceRange"];
+		["name":name, "age":age, "gender":gender, "college": college, "study": study, "desired": desired, "startprice": startprice, "endprice":endprice];
 		
 		//System.out.println("atts" + attrmap);
 		//System.out.println("index" + params.name);
@@ -25,7 +26,7 @@ class ProfileController {
 	}
 	def createuser(){
 		java.lang.Long userid = session.userID;
-		def attrmap = [:];
+		def attrmap = [:]; 
 		def permap = [:];
 		
 		def name = params.name;
@@ -50,9 +51,11 @@ class ProfileController {
 		}
 		def price = params.price;
 		if(price){
-			attrmap["price"] = price;
+			def (minPrice, maxPrice) = price.tokenize( '-' )
+			attrmap["startPricerRange"] = minPrice.toDouble();
+			attrmap["endPriceRange"]	= maxPrice.toDouble(); 	
 		}
-		//System.out.println("edit" + attrmap);
+		System.out.println("edit" + attrmap);
 		//ad user attrs
 		User.addUserAttributes(userid, attrmap);
 

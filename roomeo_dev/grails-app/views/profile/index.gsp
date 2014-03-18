@@ -20,7 +20,8 @@
 	    		     	<p>College: ${college}</p>
 	    		     	<p>Area of Study: ${study}</p>
 	    		     	<p>Desired Location: ${desired}</p>
-	    		     	<p>Price ${price}</p>
+	    		     	<p>Start Price ${startprice}</p>
+	    		     	<p>End Price: ${endprice}</p>
 	    	   	     </div>
 	    	   </div> <%--row --%>
         </div> <%-- container--%> 
