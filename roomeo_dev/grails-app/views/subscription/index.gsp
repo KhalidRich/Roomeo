@@ -12,6 +12,7 @@
 	<div id='container'>
 	<center>
 	<g:if test="${errorMessage}">
+	<p> In here!</p>
 	<p> ${errorMessage}</p>
 	</g:if>
 	<div class="panel panel-default" id="registerpanel">
@@ -19,7 +20,7 @@
     		<h3 class="panel-title">Sign Up to Find The Perfect Roommate!</h3>
   		</div>
   		<div class="panel-body">
-				<g:form role="form" class="searchform" controller="subscription" action="subscribe">
+				<g:form role="form" class="searchform" controller="user" action="register">
 				  <div> <label for="username"> Username </label></div>
 				  <br>
 				  <div class="form-group" id="username">
