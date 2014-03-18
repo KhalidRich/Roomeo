@@ -39,6 +39,8 @@ class User {
 			return -2
 		// Create this user
 		user = new User(uname: username, password: pass, attributes: new UserAttributes(), personality: new UserPersonality(), address: new Address())
+		if (!user.validate())
+		    return -1
 		user.save()
 		// Done
 		return user.id
@@ -87,6 +89,7 @@ class User {
 		if (user == null)
 			return -1
 		// Get the possible attributes
+		println user.attributes.getProperties()
 		def possAttr = user.attributes.class.getDeclaredFields()
 		if (user.attributes == null) {
 		    println "It's null dummy"
@@ -122,30 +125,32 @@ class User {
 		if (user == null)
 			return -1
 		// Get the possible attributes
-		def possAttr = user.personalities.class.getDeclaredFields()
-		if (user.personalities == null) {
+		if (user.personality == null) {
 		    println "It's null dummy"
 		    return 0
 		}
+		def possAttr = user.personality.class.getDeclaredFields()
 		for (field in possAttr) {
-		    println field.getName()
 			// Retrieve the value of this attribute from the map
 			def attr = personalitiesToAdd.get(field.getName())
 			// Make sure the map contained this field
 			if (attr != null) {
+		        println "attr, ${attr.toString()}, is of type ${attr.class} and field, ${field.getName()}, is of type ${field.getType()}"
 				// Type mismatch, do nothing
-				if (!attr.class.equals(field.getType()))
+				if (!attr.class.equals(field.getType())) {
 					continue
+				}
 				// Set the field
 				if (!field.isAccessible()) {
 				    field.setAccessible(true)
-				    field.set(user.personalities, attr)
+				    println "setting attribute"
+				    field.set(user.personality, attr)
 				    field.setAccessible(false)
 				} else
-				    field.set(user.personalities, attr)
+				    field.set(user.personality, attr)
 			}
 		}
-		println "user personalities: ${user.personalities}"
+		println "user personality: ${user.personality.bedtime}"
 		user.save()
 		return 0
 	}
