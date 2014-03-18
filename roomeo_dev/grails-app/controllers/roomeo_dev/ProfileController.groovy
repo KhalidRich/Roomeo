@@ -5,17 +5,19 @@ import roomeo_dev.Gender.*;
 class ProfileController {
 
 	def index() {
-		java.lang.Long userid = session.userID;
-		def attrmap = (User.getUserFromID(userid)).attributes;
-		def name = attrmap["name"];
-		def age = attrmap["age"];
-		def gender = attrmap["gender"];
-		def college = attrmap["college"];
-		def study = attrmap["study"];
-		def desired = attrmap["desiredLocation"];
-		def startprice = attrmap["startPriceRange"]; 
-		def endprice = attrmap["endPriceRange"];
-		["name":name, "age":age, "gender":gender, "college": college, "study": study, "desired": desired, "startprice": startprice, "endprice":endprice];
+		java.lang.Long userid = session.userId;
+		if(userid){
+			def attrmap = (User.getUserFromID(userid)).attributes;
+			def name = attrmap["name"];
+			def age = attrmap["age"];
+			def gender = attrmap["gender"];
+			def college = attrmap["college"];
+			def study = attrmap["study"];
+			def desired = attrmap["desiredLocation"];
+			def startprice = attrmap["startPriceRange"];
+			def endprice = attrmap["endPriceRange"];
+			["name":name, "age":age, "gender":gender, "college": college, "study": study, "desired": desired, "startprice": startprice, "endprice":endprice];
+		}
 		
 		//System.out.println("atts" + attrmap);
 		//System.out.println("index" + params.name);

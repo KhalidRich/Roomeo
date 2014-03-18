@@ -6,7 +6,9 @@ class SubscriptionController {
 	def emailConfirmationService
 	
     def index() {
-		
+		if(params.errorMessage){
+			[errorMessage:params.errorMessage]
+		}
 	}
 	
 	def subscribe = { 

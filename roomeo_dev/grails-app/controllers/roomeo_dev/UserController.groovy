@@ -33,7 +33,7 @@ class UserController {
 		redirect(controller:'home', action: 'index')	
 	}
 	def register(){
-			System.out0.println("in here")
+			System.out.println("in here")
 			def userId = User.crayUser(params.username, params.password)
 			if(userId >= 0){
 				def user = User.getUserFromID(userId)
@@ -45,14 +45,13 @@ class UserController {
 			// notify user that this username has already been used
 			else if(userId == -1){
 				def errorMessage = "This user exists, try again!"
-				[errorMessage:errorMessage]
-				redirect(controller:'subscription', action: 'index')
+				redirect(controller:'subscription', action: 'index', params: [errorMessage:errorMessage])
 			}
 			// notify error occurred
 			else{
 				def errorMessage = "Please enter a valid username/password"
 				[errorMessage:errorMessage]
-				redirect(controller:'subscription', action: 'index')
+				redirect(controller:'subscription', action: 'index', params: [errorMessage:errorMessage])
 			}
 	}
 }

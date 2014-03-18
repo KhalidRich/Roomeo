@@ -23,6 +23,9 @@
 	    		     	<p>Start Price ${startprice}</p>
 	    		     	<p>End Price: ${endprice}</p>
 	    	   	     </div>
+					<g:form role="form" action="edit">
+        			<button id="searchbutton" type="submit" class="btn btn-default">Edit Profile</button>
+					</g:form>
 	    	   </div> <%--row --%>
         </div> <%-- container--%> 
 	

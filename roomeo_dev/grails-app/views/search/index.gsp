@@ -40,7 +40,12 @@
 				  <div><label> Location </label></div>
 				  <br>
 				  <div class="form-group" id="location">
-				    <input type="text" class="input-large form-control" id="loc" name="location" placeholder="Eg. NYC">
+				  	<g:if test="${params.cityname}">
+				  		<input type="text" class="input-large form-control" id="loc" name="location" value="${params.cityname}">
+				  	</g:if>
+				  	<g:else>
+				  		<input type="text" class="input-large form-control" id="loc" name="location" placeholder="Eg. NYC">
+				  	</g:else>
 				  </div>
 				  
 				  <div class="checkbox" id="haveroom">
