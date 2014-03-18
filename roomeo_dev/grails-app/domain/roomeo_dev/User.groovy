@@ -2,7 +2,7 @@ package roomeo_dev
 
 import java.security.NoSuchAlgorithmException
 import java.security.spec.InvalidKeySpecException
-import roomeo_dev.security.PasswordFunctions;
+import roomeo_dev.security.PasswordFunctions
 
 class User {
 	String email = ""
@@ -162,6 +162,40 @@ class User {
 		user.save()
 		return 0
 	}
+	
+	
+    public static Map getUserPersonality(Long id)
+    {
+        if (id == null)
+            return null
+
+        def user = User.get(id)
+        if (user == null)
+            return null
+        
+        def userNality = [:]
+        user.personality.getDomainClass().getPersistantProperties().each {
+            userNality.put(it.getName(), user.personality.getField(it.getName()))
+        }
+        return userNality
+    }
+    
+    
+    public static Map getUserAttributes(Long id)
+    {
+        if (id == null)
+            return null
+
+        def user = User.get(id)
+        if (user == null)
+            return null
+        
+        def userAttr = [:]
+        user.attributes.getDomainClass().getPersistantProperties().each {
+            userAttr.put(it.getName(), user.attributes.getField(it.getName()))
+        }
+        return userAttr
+    }
 	
 	/**
 	 * With great power comes great responsibility.
