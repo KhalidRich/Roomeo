@@ -8,7 +8,7 @@ class ProfileController {
 		java.lang.Long userid = session.userId;
 
 		if(userid){
-			def attrmap = (User.getUserFromID(userid)).attributes;
+			def attrmap = User.getUserAttributes(userid);
 			def name = attrmap["name"];
 			def age = attrmap["age"];
 			def gender = attrmap["gender"];
@@ -19,11 +19,8 @@ class ProfileController {
 			def endprice = attrmap["endPriceRange"];
 			["name":name, "age":age, "gender":gender, "college": college, "study": study, "desired": desired, "startprice": startprice, "endprice":endprice];
 		}
-		
-		System.out.println("atts" + attrmap);
-		//System.out.println("index" + params.name);
-
 	}
+
 	def edit() {
 		//redirect(controller:"ProfileController",action:"createuser")
 	}

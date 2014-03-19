@@ -28,12 +28,12 @@ class MatchingService
 
 	def getUserMatchScores(userId, params)
 	{
-		def user = User.find(id:userId)
+		def user = User.getUserById(userId)
 		HashMap<User, Double> matchScores = new HashMap<User, Double>()
 
 		def results = []
 
-		if(user.personality == null) {
+		if(User.getPersonalityById(userId) == null) {
 			results = User.find()
 		} else { 
 			results = trim(user.personality, params)

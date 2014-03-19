@@ -161,6 +161,40 @@ class User {
 	 * @param id - The userid of the User object
 	 * @return A User whose User.id == id, or null on error
 	 */
+
+	public static Map getUserPersonality(Long id)
+    {
+        if (id == null)
+            return null
+
+        def user = User.get(id)
+        if (user == null)
+            return null
+        
+        def userNality = [:]
+        user.personality.getDomainClass().getPersistantProperties().each {
+            userNality.put(it.getName(), user.personality.getField(it.getName()))
+        }
+        return userNality
+    }
+    
+    
+    public static Map getUserAttributes(Long id)
+    {
+        if (id == null)
+            return null
+
+        def user = User.get(id)
+        if (user == null)
+            return null
+        
+        def userAttr = [:]
+        user.attributes.getDomainClass().getPersistantProperties().each {
+            userAttr.put(it.getName(), user.attributes.getField(it.getName()))
+        }
+        return userAttr
+    }
+    
 	public static User getUserFromId(Long id)
 	{
 		return User.get(id)

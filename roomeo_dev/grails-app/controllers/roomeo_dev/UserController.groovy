@@ -36,7 +36,7 @@ class UserController {
 			System.out.println("in here")
 			def userId = User.crayUser(params.username, params.password)
 			if(userId >= 0){
-				def user = User.getUserFromID(userId)
+				def user = User.getUserFromId(userId)
 				user.email = params.schoolemail
 				session.userId = userId
 				redirect(controller:'search', action: 'index')
