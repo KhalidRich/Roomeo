@@ -28,15 +28,16 @@ class MatchingService
 
 	def getUserMatchScores(userId, params)
 	{
-		def user = User.getUserById(userId)
+		def user = User.getUserFromId(userId)
 		HashMap<User, Double> matchScores = new HashMap<User, Double>()
 
-		def results = []
+		def personality = User.getUserPersonality(userId)
+		def results = trim(params)
 
-		if(User.getPersonalityById(userId) == null) {
-			results = User.find()
-		} else { 
-			results = trim(user.personality, params)
+		println results == null
+
+		if(results == null) {
+			return null
 		}
 
 		for(person in results) {
@@ -46,14 +47,12 @@ class MatchingService
 		return matchScores
 	}
 
-	def trim(plty, params)
+	def trim(params)
 	{
-		if(plty == null) {
-			return User.find()
-		}
-		trimmed = User.find([(personality.desiredLocation):plty.desiredLocation, 
+		def trimmed = User.findByDesiredLocation(params.location)
+		/*([(personality.desiredLocation):plty.desiredLocation, 
 			(personality.dogFriendly):params.dogFriendly,
-			(personality.catFriendly):params.catFriendly])
+			(personality.catFriendly):params.catFriendly])*/
 
 		return trimmed
 	}

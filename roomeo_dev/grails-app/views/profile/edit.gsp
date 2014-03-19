@@ -71,6 +71,14 @@
 								    <input type="text" class="form-control" id="pricefill" name="price" placeholder="Eg. 1000-5000">
 						    </div>
 						</div>
+
+						<div id="desiredLocationfield">
+							<label id="desiredLocation"> Desired Location: </label>
+							<div class="form-group" id="input">
+								<input type="text" class="form-control" id="desiredLocationfill" name="location" placeholder="NYC">
+							</div>
+						</div>
+
 						<button type="submit" class="btn btn-default" id="submitbutton">Submit</button>
 	  		    	 </div> <%--  question col>--%>
 		    	</div> <%-- row >--%>
