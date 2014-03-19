@@ -2,7 +2,7 @@ package roomeo_dev
 
 import java.security.NoSuchAlgorithmException
 import java.security.spec.InvalidKeySpecException
-import roomeo_dev.security.PasswordFunctions;
+import roomeo_dev.security.PasswordFunctions
 
 class User {
 	String email = ""
@@ -87,34 +87,20 @@ class User {
 		// Get the user
 		def user = User.get(userid)
 		if (user == null)
-			return -1
-		// Get the possible attributes
-		println user.attributes.getProperties()
-		def possAttr = user.attributes.class.getDeclaredFields()
-		if (user.attributes == null) {
-		    println "It's null dummy"
-		    return 0
-		}
-		for (field in possAttr) {
-		    println field.getName()
+		    return -1
+		
+        user.attributes.getDomainClass().getPersistantProperties().each {
 			// Retrieve the value of this attribute from the map
-			def attr = attributesToAdd.get(field.getName())
+			def attr = attributesToAdd.get(it.getName())
 			// Make sure the map contained this field
-			if (attr != null) {
-				// Type mismatch, do nothing
-				if (!attr.class.equals(field.getType()))
-					continue
-				// Set the field
-				if (!field.isAccessible()) {
-				    field.setAccessible(true)
-				    field.set(user.attributes, attr)
-				    field.setAccessible(false)
-				} else
-				    field.set(user.attributes, attr)
-			}
+			if (attr != null)
+			    user.attributes.setField(it.getName(), attr)
 		}
-		println "user attributes: ${user.attributes}"
-		user.save()
+		// Always validate before saving
+		if (user.validate())
+		    user.save()
+		else
+		    return -1
 		return 0
 	}
 	
@@ -123,39 +109,62 @@ class User {
 		// Get the user
 		def user = User.get(userid)
 		if (user == null)
-			return -1
-		// Get the possible attributes
-		if (user.personality == null) {
-		    println "It's null dummy"
-		    return 0
-		}
-		def possAttr = user.personality.class.getDeclaredFields()
-		for (field in possAttr) {
+		    return -1
+		
+        user.personality.getDomainClass().getPersistantProperties().each {
 			// Retrieve the value of this attribute from the map
-			def attr = personalitiesToAdd.get(field.getName())
+			def naly = personalitiesToAdd.get(it.getName())
 			// Make sure the map contained this field
-			if (attr != null) {
-		        println "attr, ${attr.toString()}, is of type ${attr.class} and field, ${field.getName()}, is of type ${field.getType()}"
-				// Type mismatch, do nothing
-				if (!attr.class.equals(field.getType())) {
-					continue
-				}
-				// Set the field
-				if (!field.isAccessible()) {
-				    field.setAccessible(true)
-				    println "setting attribute"
-				    field.set(user.personality, attr)
-				    field.setAccessible(false)
-				} else
-				    field.set(user.personality, attr)
-			}
+			if (naly != null)
+			    user.personality.setField(it.getName(), naly)
 		}
-		println "user personality: ${user.personality.bedtime}"
-		user.save()
+		// Always validate before saving
+		if (user.validate())
+		    user.save()
+		else
+		    return -1
 		return 0
 	}
 
 	/*
+=======
+	
+	
+    public static Map getUserPersonality(Long id)
+    {
+        if (id == null)
+            return null
+
+        def user = User.get(id)
+        if (user == null)
+            return null
+        
+        def userNality = [:]
+        user.personality.getDomainClass().getPersistantProperties().each {
+            userNality.put(it.getName(), user.personality.getField(it.getName()))
+        }
+        return userNality
+    }
+    
+    
+    public static Map getUserAttributes(Long id)
+    {
+        if (id == null)
+            return null
+
+        def user = User.get(id)
+        if (user == null)
+            return null
+        
+        def userAttr = [:]
+        user.attributes.getDomainClass().getPersistantProperties().each {
+            userAttr.put(it.getName(), user.attributes.getField(it.getName()))
+        }
+        return userAttr
+    }
+	
+	/**
+>>>>>>> 5e1d5943be77a1e8618ab0109451537a930aab38
 	 * With great power comes great responsibility.
 	 * Given a userid, returns a User object for you to do whatever you want to it.
 	 * @param id - The userid of the User object
@@ -200,6 +209,7 @@ class User {
 		return User.get(id)
 	}
 	
+	static embedded = ['address', 'attributes', 'personality']
 	static mapping = {
 		attributes index:true
 		uname index:true, indexAttributes: [unique:true, dropDups:true]
