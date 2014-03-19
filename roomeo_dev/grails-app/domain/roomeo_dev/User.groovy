@@ -89,34 +89,20 @@ class User {
 		// Get the user
 		def user = User.get(userid)
 		if (user == null)
-			return -1
-		// Get the possible attributes
-		println user.attributes.getProperties()
-		def possAttr = user.attributes.class.getDeclaredFields()
-		if (user.attributes == null) {
-		    println "It's null dummy"
-		    return 0
-		}
-		for (field in possAttr) {
-		    println field.getName()
+		    return -1
+		
+        user.attributes.getDomainClass().getPersistantProperties().each {
 			// Retrieve the value of this attribute from the map
-			def attr = attributesToAdd.get(field.getName())
+			def attr = attributesToAdd.get(it.getName())
 			// Make sure the map contained this field
-			if (attr != null) {
-				// Type mismatch, do nothing
-				if (!attr.class.equals(field.getType()))
-					continue
-				// Set the field
-				if (!field.isAccessible()) {
-				    field.setAccessible(true)
-				    field.set(user.attributes, attr)
-				    field.setAccessible(false)
-				} else
-				    field.set(user.attributes, attr)
-			}
+			if (attr != null)
+			    user.attributes.setField(it.getName(), attr)
 		}
-		println "user attributes: ${user.attributes}"
-		user.save()
+		// Always validate before saving
+		if (user.validate())
+		    user.save()
+		else
+		    return -1
 		return 0
 	}
 	
@@ -131,35 +117,20 @@ class User {
 		// Get the user
 		def user = User.get(userid)
 		if (user == null)
-			return -1
-		// Get the possible attributes
-		if (user.personality == null) {
-		    println "It's null dummy"
-		    return 0
-		}
-		def possAttr = user.personality.class.getDeclaredFields()
-		for (field in possAttr) {
+		    return -1
+		
+        user.personality.getDomainClass().getPersistantProperties().each {
 			// Retrieve the value of this attribute from the map
-			def attr = personalitiesToAdd.get(field.getName())
+			def naly = personalitiesToAdd.get(it.getName())
 			// Make sure the map contained this field
-			if (attr != null) {
-		        println "attr, ${attr.toString()}, is of type ${attr.class} and field, ${field.getName()}, is of type ${field.getType()}"
-				// Type mismatch, do nothing
-				if (!attr.class.equals(field.getType())) {
-					continue
-				}
-				// Set the field
-				if (!field.isAccessible()) {
-				    field.setAccessible(true)
-				    println "setting attribute"
-				    field.set(user.personality, attr)
-				    field.setAccessible(false)
-				} else
-				    field.set(user.personality, attr)
-			}
+			if (naly != null)
+			    user.personality.setField(it.getName(), naly)
 		}
-		println "user personality: ${user.personality.bedtime}"
-		user.save()
+		// Always validate before saving
+		if (user.validate())
+		    user.save()
+		else
+		    return -1
 		return 0
 	}
 	
@@ -208,6 +179,7 @@ class User {
 		return User.get(id)
 	}
 	
+	static embedded = ['address', 'attributes', 'personality']
 	static mapping = {
 		uname index:true, indexAttributes: [unique:true, dropDups:true]
 	}
