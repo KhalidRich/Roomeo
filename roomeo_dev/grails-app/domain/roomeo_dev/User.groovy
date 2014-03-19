@@ -10,7 +10,10 @@ class User {
 	String password
 	Boolean verified = false
 	
-	static hasOne = [attributes: UserAttributes, personality: UserPersonality, address: Address]
+	UserAttributes attributes
+	UserPersonality personality
+	Address address
+	
 	static hasMany = [matches: UserMatch]
 	
 	/**
@@ -91,16 +94,22 @@ class User {
 		if (user == null)
 		    return -1
 		
-        user.attributes.getDomainClass().getPersistantProperties().each {
+		def userAttr = UserAttributes.get(user.attributes.id)
+		if (userAttr == null)
+		    return -1
+		    
+        userAttr.getDomainClass().getPersistantProperties().each {
 			// Retrieve the value of this attribute from the map
-			def attr = attributesToAdd.get(it.getName())
+			def field = it.getName()
+			def attr = attributesToAdd.get(field)
 			// Make sure the map contained this field
-			if (attr != null)
-			    user.attributes.setField(it.getName(), attr)
+			if (attr != null && it.getType().isInstance(attr))
+			    userAttr."$field" = attr
 		}
+		
 		// Always validate before saving
-		if (user.validate())
-		    user.save()
+		if (userAttr.validate())
+		    userAttr.save()
 		else
 		    return -1
 		return 0
@@ -119,16 +128,22 @@ class User {
 		if (user == null)
 		    return -1
 		
-        user.personality.getDomainClass().getPersistantProperties().each {
+		def userNaly = UserPersonality.get(user.personality.id)
+		if (userNaly == null)
+		    return -1
+		    
+        userNaly.getDomainClass().getPersistantProperties().each {
 			// Retrieve the value of this attribute from the map
-			def naly = personalitiesToAdd.get(it.getName())
+			def field = it.getName()
+			def naly = personalitiesToAdd.get(field)
 			// Make sure the map contained this field
-			if (naly != null)
-			    user.personality.setField(it.getName(), naly)
+			if (naly != null && it.getType().isInstance(naly))
+			    userNaly."$field" = naly
 		}
+		
 		// Always validate before saving
-		if (user.validate())
-		    user.save()
+		if (userNaly.validate())
+		    userNaly.save()
 		else
 		    return -1
 		return 0
@@ -179,7 +194,7 @@ class User {
 		return User.get(id)
 	}
 	
-	static embedded = ['address', 'attributes', 'personality']
+	// static embedded = ['address', 'attributes', 'personality']
 	static mapping = {
 		uname index:true, indexAttributes: [unique:true, dropDups:true]
 	}
