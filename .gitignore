@@ -2,7 +2,6 @@
 bin
 db
 eclipse
-lib
 log
 logs
 modules
@@ -32,3 +31,10 @@ dist
 # Temporary files
 *~
 *.bak
+
+# Object files
+*.class
+
+# Miscellaneous
+*Scratch.groovy
+*Scratch.java

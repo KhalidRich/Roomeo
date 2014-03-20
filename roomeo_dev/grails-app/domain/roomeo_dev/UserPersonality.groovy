@@ -1,5 +1,7 @@
 package roomeo_dev
 
+import java.lang.reflect.Field
+
 class UserPersonality {
 	Integer bedtime
 	Integer wakeUp
@@ -16,7 +18,22 @@ class UserPersonality {
 	Boolean needRoom
 	Boolean dogFriendly
 	Boolean catFriendly
+
 	
+	public Object getField(String field)
+	{
+	    Field member = this.getClass().getDeclaredField(field)
+	    def ret
+	    if (!member.isAccessible()) {
+	        member.setAccessible(true)
+	        ret = member.get(this)
+	        member.setAccessible(false)
+	    } else
+	        ret = member.get(this)
+	    return ret
+	}
+	
+	static belongsTo = [user: User]
     static constraints = {
 		bedtime range: 0..2400
 		wakeUp range: 0..2400

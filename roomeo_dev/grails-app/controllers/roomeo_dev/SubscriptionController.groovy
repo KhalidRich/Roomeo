@@ -17,7 +17,7 @@ class SubscriptionController {
 			System.out.println("In here!!!")
 			def userId = User.crayUser(params.username, params.password)
 			if(userId >= 0){
-				def user = User.getUserFromID(userId)
+				def user = User.getUserFromId(userId)
 				user.email = params.schoolemail
 				session.userId = userId
 				redirect(controller:'home', action: 'index')

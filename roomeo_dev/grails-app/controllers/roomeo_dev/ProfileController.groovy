@@ -1,13 +1,20 @@
 package roomeo_dev
-import roomeo_dev.User.*;
-import roomeo_dev.Gender.*;
+
+import roomeo_dev.User.*
+import roomeo_dev.Gender
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class ProfileController {
 
+    def patternMale = ~/^m(ale)?$/
+    def patternFemale = ~/^f(emale)?$/
+
 	def index() {
 		java.lang.Long userid = session.userId;
+
 		if(userid){
-			def attrmap = (User.getUserFromID(userid)).attributes;
+			def attrmap = User.getUserAttributes(userid);
 			def name = attrmap["name"];
 			def age = attrmap["age"];
 			def gender = attrmap["gender"];
@@ -18,17 +25,14 @@ class ProfileController {
 			def endprice = attrmap["endPriceRange"];
 			["name":name, "age":age, "gender":gender, "college": college, "study": study, "desired": desired, "startprice": startprice, "endprice":endprice];
 		}
-		
-		//System.out.println("atts" + attrmap);
-		//System.out.println("index" + params.name);
-
 	}
+
 	def edit() {
 		//redirect(controller:"ProfileController",action:"createuser")
 	}
 	def createuser(){
-		java.lang.Long userid = session.userID;
-		def attrmap = [:]; 
+		java.lang.Long userid = session.userId;
+		def attrmap = [:];
 		def permap = [:];
 		
 		def name = params.name;
@@ -41,7 +45,14 @@ class ProfileController {
 		}
 		def gender = params.gender;
 		if (gender){
-			attrmap["gender"] = Gender.valueOf(gender);
+		    if (gender instanceof String) {
+		        gender = gender.toLowerCase()
+		        if (patternMale.matcher(gender).matches())
+			        attrmap["gender"] = Gender.MALE
+			     else if (patternFemale.matcher(gender).matches())
+			        attrmap["gender"] = Gender.FEMALE
+			     
+			 }
 		}
 		def college = params.college;
 		if (college){
