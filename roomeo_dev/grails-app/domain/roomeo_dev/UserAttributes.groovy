@@ -5,13 +5,13 @@ import java.lang.reflect.Field
 class UserAttributes {
 	String name
 	String profilePicturePath
-	Gender gender
+	Gender gender = Gender.UNDISCLOSED
 	Integer age
     
 	Double longitude
 	Double latitude
 	List location
-	Address desiredLocation
+	String desiredLocation
 	Boolean hasRoom
     Double startPriceRange, endPriceRange
 
