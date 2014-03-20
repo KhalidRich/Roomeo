@@ -8,7 +8,7 @@ class User {
 	String email = ""
 	String uname
 	String password
-	Boolean verified
+	Boolean verified = false
 	
 	UserAttributes attributes
 	UserPersonality personality
