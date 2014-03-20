@@ -22,7 +22,7 @@ class User {
 	 * @param password - The password of the user. No restrictions
 	 * @return The userid on success. -1 if the user already existed. -2 for violating password restrictions. -3 for all other errors
 	 */
-	public static Long crayUser(String username, String plainPassword)
+	public static long crayUser(String username, String plainPassword)
 	{
 		// First, check to see if a user by this name exists
 		def user = User.findByUname(username)
@@ -56,7 +56,7 @@ class User {
 	 * @param plainPassword - The password in plain text (or maybe the eventual short hash)
 	 * @return The userid on success, -1 if the pair does not describe a valid user, and -2 on error
 	 */
-	public static Long verifyUser(String identification, String plainPassword)
+	public static long verifyUser(String identification, String plainPassword)
 	{
 		// Get the user object
 		def user = User.findByUname(identification)
