@@ -104,7 +104,7 @@ class ProfileController {
 		User.addUserPersonalities(userid, permap);
 		//System.out.println("permap" + permap);
 		
-		redirect(view:"index")
+		redirect(view:"index", model: attrmap)
 	
 	}
 	def matches() {
