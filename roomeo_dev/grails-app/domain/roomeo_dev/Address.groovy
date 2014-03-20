@@ -35,10 +35,16 @@ class Address {
 	}
 	
 	/**
-	 * Sets a given's User address 
+	 * Sets a given User's address to the specified address
+	 * @param userid - The id of the User whose Address is being set
+	 * @param address - The Address to set the above User's address to
+	 * @return Returns 0 on success. -1 if the user could not be found (or address). -2 on all other errors
 	**/
 	public static int setUserAddress(Long userid, Address address)
 	{
+	    if (userid == null || address == null)
+	        return -1
+	    
 	    def user = User.get(userid)
 	    if (user == null)
 	        return -1
