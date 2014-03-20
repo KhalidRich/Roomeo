@@ -15,6 +15,7 @@ class ProfileController {
 
 		if(userid){
 			def attrmap = User.getUserAttributes(userid);
+			System.out.println("In here bitches" + attrmap);
 			def name = attrmap["name"];
 			def age = attrmap["age"];
 			def gender = attrmap["gender"];
