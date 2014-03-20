@@ -10,7 +10,10 @@ class User {
 	String password
 	Boolean verified
 	
-	static hasOne = [attributes: UserAttributes, personality: UserPersonality, address: Address]
+	UserAttributes attributes
+	UserPersonality personality
+	Address address
+	
 	static hasMany = [matches: UserMatch]
 	
 	/**
@@ -19,7 +22,7 @@ class User {
 	 * @param password - The password of the user. No restrictions
 	 * @return The userid on success. -1 if the user already existed. -2 for violating password restrictions. -3 for all other errors
 	 */
-	public static Long crayUser(String username, String plainPassword)
+	public static long crayUser(String username, String plainPassword)
 	{
 		// First, check to see if a user by this name exists
 		def user = User.findByUname(username)
@@ -53,7 +56,7 @@ class User {
 	 * @param plainPassword - The password in plain text (or maybe the eventual short hash)
 	 * @return The userid on success, -1 if the pair does not describe a valid user, and -2 on error
 	 */
-	public static Long verifyUser(String identification, String plainPassword)
+	public static long verifyUser(String identification, String plainPassword)
 	{
 		// Get the user object
 		def user = User.findByUname(identification)
@@ -89,16 +92,22 @@ class User {
 		if (user == null)
 		    return -1
 		
-        user.attributes.getDomainClass().getPersistantProperties().each {
+		def userAttr = UserAttributes.get(user.attributes.id)
+		if (userAttr == null)
+		    return -1
+		    
+        userAttr.getDomainClass().getPersistantProperties().each {
 			// Retrieve the value of this attribute from the map
-			def attr = attributesToAdd.get(it.getName())
+			def field = it.getName()
+			def attr = attributesToAdd.get(field)
 			// Make sure the map contained this field
-			if (attr != null)
-			    user.attributes.setField(it.getName(), attr)
+			if (attr != null && it.getType().isInstance(attr))
+			    userAttr."$field" = attr
 		}
+		
 		// Always validate before saving
-		if (user.validate())
-		    user.save()
+		if (userAttr.validate())
+		    userAttr.save()
 		else
 		    return -1
 		return 0
@@ -111,16 +120,22 @@ class User {
 		if (user == null)
 		    return -1
 		
-        user.personality.getDomainClass().getPersistantProperties().each {
+		def userNaly = UserPersonality.get(user.personality.id)
+		if (userNaly == null)
+		    return -1
+		    
+        userNaly.getDomainClass().getPersistantProperties().each {
 			// Retrieve the value of this attribute from the map
-			def naly = personalitiesToAdd.get(it.getName())
+			def field = it.getName()
+			def naly = personalitiesToAdd.get(field)
 			// Make sure the map contained this field
-			if (naly != null)
-			    user.personality.setField(it.getName(), naly)
+			if (naly != null && it.getType().isInstance(naly))
+			    userNaly."$field" = naly
 		}
+		
 		// Always validate before saving
-		if (user.validate())
-		    user.save()
+		if (userNaly.validate())
+		    userNaly.save()
 		else
 		    return -1
 		return 0
@@ -209,7 +224,7 @@ class User {
 		return User.get(id)
 	}
 	
-	static embedded = ['address', 'attributes', 'personality']
+	// static embedded = ['address', 'attributes', 'personality']
 	static mapping = {
 		attributes index:true
 		uname index:true, indexAttributes: [unique:true, dropDups:true]

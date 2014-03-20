@@ -33,29 +33,7 @@ class UserPersonality {
 	    return ret
 	}
 	
-    public int setField(String field, Object value)
-    {
-        Field member = this.getClass().getDeclaredField(field)
-        // The field actually exists
-        if (member == null)
-            return -1
-
-        // The field is of the 
-        if (!value.getClass().equals(member.getType()))
-            return -2
-
-        boolean notAccessible = false
-        if (!member.isAccessible()) {
-            member.setAccessible(true)
-            notAccessible = true
-        }
-        member.set(this, value)
-        if (notAccessible)
-            member.setAccessible(false)
-        
-        return 0
-    }
-	
+	static belongsTo = [user: User]
     static constraints = {
 		bedtime range: 0..2400
 		wakeUp range: 0..2400
