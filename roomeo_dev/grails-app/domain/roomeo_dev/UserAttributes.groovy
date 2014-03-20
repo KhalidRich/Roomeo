@@ -10,7 +10,7 @@ class UserAttributes {
 	Double longitude
 	Double latitude
 	List location
-	Address desiredLocation
+	String desiredLocation
 	Boolean hasRoom
     Double startPriceRange, endPriceRange
 

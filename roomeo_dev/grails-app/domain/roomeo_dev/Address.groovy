@@ -5,6 +5,7 @@ import net.sourceforge.jgeocoder.us.AddressStandardizer
 import net.sourceforge.jgeocoder.AddressComponent
 
 class Address {
+    String name
 	String streetAddress
 	String city
 	String state
