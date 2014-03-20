@@ -4,7 +4,7 @@ import java.lang.reflect.Field
 class UserAttributes {
 	String name
 	String profilePicturePath
-	Gender gender
+	Gender gender = Gender.UNDISCLOSED
 	Integer age
     
 	Double longitude
