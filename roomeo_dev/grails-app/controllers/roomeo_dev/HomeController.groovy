@@ -12,5 +12,7 @@ class HomeController {
 	def signin() {
 		redirect(controller:"SigninController",action:"index")
 	}
-	
+	def index2() {
+		
+	}
 }
