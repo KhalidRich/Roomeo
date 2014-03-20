@@ -25,7 +25,7 @@
 			<div id="searchbox" class="form-group">
         		  <input type="text" class="form-control" name="cityname" placeholder="Search for your city!">
        		 </div>
-        	<button id="searchbutton" type="submit" class="btn btn-default" onClick="_gaq.push(['_trackEvent', 'searchVersionBl', 'interest_form_submit', 'funnel_submit_btn']);">Search Now!</button>
+        	<button id="searchbutton" type="submit" class="btn btn-default" onclick="_gaq.push(['_trackEvent', 'searchVersionBl', 'interest_form_submit', 'funnel_submit_btn']);">Search Now!</button>
 		</g:form>
 		</body>
 
