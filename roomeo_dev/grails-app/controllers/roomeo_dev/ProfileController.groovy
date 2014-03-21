@@ -15,6 +15,7 @@ class ProfileController {
 
 		if(userid){
 			def attrmap = User.getUserAttributes(userid);
+			System.out.println("In here bitches" + attrmap);
 			def name = attrmap["name"];
 			def age = attrmap["age"];
 			def gender = attrmap["gender"];
@@ -65,8 +66,10 @@ class ProfileController {
 		def price = params.price;
 		if(price){
 			def (minPrice, maxPrice) = price.tokenize( '-' )
-			attrmap["startPricerRange"] = minPrice.toDouble();
-			attrmap["endPriceRange"]	= maxPrice.toDouble(); 	
+			if (minPrice != null)
+			    attrmap["startPricerRange"] = minPrice.toDouble();
+			if (maxPrice != null)
+			    attrmap["endPriceRange"] = maxPrice.toDouble(); 	
 		}
 		System.out.println("edit" + attrmap);
 		//ad user attrs
@@ -115,7 +118,7 @@ class ProfileController {
 		User.addUserPersonalities(userid, permap);
 		//System.out.println("permap" + permap);
 		
-		redirect(view:"index")
+		redirect(view:"index", model: attrmap)
 	
 	}
 	def matches() {
