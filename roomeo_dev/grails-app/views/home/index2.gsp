@@ -17,9 +17,9 @@
 		  ga('send', 'pageview');
 		</script>
 	</head>
-	<body class="home" background="${resource(dir: 'images', file: 'skyline.jpg')}"> 
+	<body class="home" background="${resource(dir: 'images', file: 'background.jpg')}"> 
 		<div id="homeh1">
-  			Find the perfect roommate in the perfect location!
+  			<font color="white">Search desired location to find your perfect roommate</font>
 		</div>
 		<g:form role="form" id="homesearch" role="search" class="navbar-form navbar-left" controller="search" action="index">
 			<div id="searchbox" class="form-group">
