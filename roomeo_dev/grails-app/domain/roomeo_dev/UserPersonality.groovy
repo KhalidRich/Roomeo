@@ -18,7 +18,6 @@ class UserPersonality {
 	Boolean needRoom
 	Boolean dogFriendly
 	Boolean catFriendly
-
 	
 	public Object getField(String field)
 	{
